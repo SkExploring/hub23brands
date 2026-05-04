@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hub23 Brands — Mandoli, Delhi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#e8a020;--gold-light:#f5c96a;--dark:#0f0f1a;--dark2:#1a1a2e;--dark3:#22223a;--off-white:#f5f4f0;--muted:#8888aa;--radius:12px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--dark);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,26,0.94);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;border-bottom:1px solid rgba(232,160,32,0.2);}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold);letter-spacing:2px;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:#ccc;text-decoration:none;font-size:13px;transition:color .2s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-cta{background:var(--gold);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;}
+    #ann-bar{display:none;background:var(--gold);padding:.6rem 2rem;text-align:center;margin-top:57px;}
+    #ann-bar p{font-size:13px;font-weight:500;color:#fff;}
+    .hero{min-height:100vh;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+    .hero-grid{position:absolute;inset:0;opacity:.07;background-image:linear-gradient(var(--gold) 1px,transparent 1px),linear-gradient(90deg,var(--gold) 1px,transparent 1px);background-size:48px 48px;}
+    .hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,0.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.35);color:var(--gold);font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;position:relative;}
+    .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,12vw,120px);color:#fff;line-height:.9;letter-spacing:4px;position:relative;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:16px;color:var(--muted);max-width:480px;margin:1.5rem auto 2.5rem;line-height:1.7;position:relative;}
+    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+    .btn-gold{background:var(--gold);color:#fff;border:none;padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;}
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+    .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.25);padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:border-color .2s,transform .15s;}
+    .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:11px;letter-spacing:1px;text-transform:uppercase;}
+    .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sa 1.8s ease-in-out infinite;}
+    @keyframes sa{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+    section{padding:5rem 2rem;}
+    .container{max-width:960px;margin:0 auto;}
+    .section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:.5rem;}
+    .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,54px);letter-spacing:2px;line-height:1.05;margin-bottom:1.5rem;}
+    #about{background:var(--off-white);}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+    .about-text p{font-size:15px;line-height:1.8;color:#444;margin-bottom:1rem;}
+    .stats-row{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap;}
+    .stat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);line-height:1;}
+    .stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+    .about-visual{background:var(--dark2);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;border:1px solid rgba(232,160,32,0.2);position:relative;overflow:hidden;}
+    .about-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,0.25) 0%,transparent 70%);}
+    .about-visual-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px;margin-bottom:.25rem;}
+    .about-visual-sub{font-size:12px;color:var(--muted);margin-bottom:2rem;}
+    .pill-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+    .pill{background:rgba(232,160,32,0.12);border:1px solid rgba(232,160,32,0.25);color:var(--gold-light);font-size:12px;padding:5px 14px;border-radius:20px;}
+    #stock{background:var(--dark);}
+    .stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:2.5rem;}
+    .stock-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);padding:1.5rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
+    .stock-card:hover{border-color:rgba(232,160,32,0.4);transform:translateY(-3px);}
+    .stock-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(232,160,32,0.06),transparent 60%);pointer-events:none;}
+    .card-img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:1rem;}
+    .card-icon{font-size:32px;margin-bottom:1rem;}
+    .card-name{font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;}
+    .card-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:1rem;}
+    .card-badge{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.3);color:var(--gold);text-transform:uppercase;letter-spacing:.5px;}
+    .card-badge.hot{background:rgba(220,50,50,0.15);border-color:rgba(220,50,50,0.3);color:#f07070;}
+    #offers{background:var(--off-white);}
+    .offers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:2rem;}
+    .offer-card{background:var(--dark);border-radius:var(--radius);padding:2rem;border:1px solid rgba(232,160,32,0.2);position:relative;overflow:hidden;}
+    .offer-card::before{content:'';position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,0.12) 0%,transparent 70%);}
+    .offer-pct{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--gold);line-height:1;letter-spacing:2px;}
+    .offer-title{font-size:15px;font-weight:500;color:#fff;margin:4px 0;}
+    .offer-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-top:6px;}
+    .offer-expiry{font-size:11px;color:rgba(232,160,32,0.7);margin-top:10px;text-transform:uppercase;letter-spacing:.5px;}
+    #contact{background:var(--dark);}
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
+    .contact-block{display:flex;flex-direction:column;gap:14px;}
+    .contact-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);padding:1.1rem 1.25rem;display:flex;align-items:flex-start;gap:14px;}
+    .cc-icon{width:40px;height:40px;border-radius:10px;background:rgba(232,160,32,0.12);border:1px solid rgba(232,160,32,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+    .cc-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
+    .cc-value{font-size:14px;color:#fff;font-weight:500;}
+    .whatsapp-card{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);border-radius:var(--radius);padding:1.25rem;text-align:center;}
+    .whatsapp-card h4{color:#fff;font-size:15px;font-weight:500;margin-bottom:.5rem;}
+    .whatsapp-card p{font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6;}
+    .btn-wa{background:#25d366;color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;}
+    .map-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);overflow:hidden;}
+    .map-ph{height:200px;background:#1e2e20;display:flex;align-items:center;justify-content:center;position:relative;}
+    .map-pin{font-size:36px;}
+    .map-footer{padding:1rem 1.25rem;}
+    .map-footer p{font-size:13px;color:var(--muted);margin-bottom:.75rem;}
+    .btn-map{display:block;text-align:center;background:var(--dark3);border:1px solid rgba(232,160,32,0.25);color:var(--gold);padding:10px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;}
+    .insta-strip{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);border-radius:var(--radius);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+    .insta-info h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px;margin-bottom:4px;}
+    .insta-info p{font-size:14px;color:rgba(255,255,255,0.8);}
+    .btn-insta{background:rgba(255,255,255,0.2);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;}
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.07);padding:2rem;text-align:center;}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:3px;margin-bottom:.5rem;}
+    .footer-sub{font-size:13px;color:var(--muted);}
+    .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:680px){.about-grid,.contact-wrap{grid-template-columns:1fr;}.stats-row{flex-wrap:wrap;gap:1.25rem;}nav .nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">HUB23</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#stock">Fresh Stock</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/917838124123?text=Hi%20Hub23%20Brands!%20I%27d%20like%20to%20know%20about%20fresh%20stock." class="nav-cta" target="_blank">WhatsApp Us</a>
+</nav>
+<div id="ann-bar"><p id="ann-txt"></p></div>
+<div class="hero">
+  <div class="hero-grid"></div><div class="hero-glow"></div>
+  <div class="hero-badge">📍 Mandoli Village, Delhi</div>
+  <h1>HUB<span>23</span><br>BRANDS</h1>
+  <p class="hero-sub">Your destination for premium branded fashion — genuine stock, unbeatable prices, updated daily.</p>
+  <div class="hero-btns">
+    <a href="#stock" class="btn-gold">View Fresh Stock</a>
+    <a href="#contact" class="btn-ghost">Find Us</a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</div>
+<section id="about">
+  <div class="container">
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <div class="section-label">Who we are</div>
+        <h2 class="section-title">Mandoli's Home of Branded Fashion</h2>
+        <p>Hub23 Brands is your trusted local source for genuine branded clothing, footwear and accessories. We keep our shelves restocked with the freshest arrivals from top brands — so you always find something new.</p>
+        <p>From everyday casuals to premium labels, we offer unmatched variety at prices that make sense.</p>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Brands</div></div>
+          <div class="stat"><div class="stat-num">365</div><div class="stat-label">Days open</div></div>
+          <div class="stat"><div class="stat-num">90%</div><div class="stat-label">Max discount</div></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-title">What We Carry</div>
+        <div class="about-visual-sub">Fresh arrivals across all categories</div>
+        <div class="pill-grid">
+          <span class="pill">Men's Wear</span><span class="pill">Women's Wear</span><span class="pill">Kids' Collection</span><span class="pill">Footwear</span><span class="pill">Bags & Backpacks</span><span class="pill">Watches</span><span class="pill">Accessories</span><span class="pill">Sports Wear</span><span class="pill">Ethnic Wear</span><span class="pill">Winterwear</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="stock">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Always Updating</div>
+      <h2 class="section-title" style="color:#fff">Fresh Stock</h2>
+    </div>
+    <div class="stock-grid" id="stock-grid"></div>
+  </div>
+</section>
+<section id="offers">
+  <div class="container fade-in">
+    <div class="section-label">Special Deals</div>
+    <h2 class="section-title">Today's Offers</h2>
+    <div class="offers-grid" id="offers-grid"></div>
+  </div>
+</section>
+<section id="contact">
+  <div class="container">
+    <div class="fade-in"><div class="section-label">Get in touch</div><h2 class="section-title" style="color:#fff">Contact & Location</h2></div>
+    <div class="contact-wrap">
+      <div class="contact-block fade-in">
+        <div class="contact-card"><div class="cc-icon">📍</div><div><div class="cc-label">Store Location</div><div class="cc-value">Sewadham Road, Mandoli Village, near Bank of Baroda, Delhi, India</div></div></div>
+        <div class="contact-card"><div class="cc-icon">🕐</div><div><div class="cc-label">Store Hours</div><div class="cc-value">Monday – Sunday | 10:00 AM – 9:00 PM</div></div></div>
+        <div class="contact-card"><div class="cc-icon">📞</div><div><div class="cc-label">Call Us</div><div class="cc-value">+91 78381 24123</div></div></div>
+        <div class="contact-card"><div class="cc-icon">📸</div><div><div class="cc-label">Instagram</div><div class="cc-value">@hub23brandsmandoli</div></div></div>
+        <div class="whatsapp-card"><h4>Get Stock Updates on WhatsApp</h4><p>Message us to ask about brands, sizes, or today's deals.</p><a href="https://wa.me/917838124123?text=Hi%20Hub23%20Brands!%20I%27d%20like%20to%20know%20about%20fresh%20stock." class="btn-wa" target="_blank"><span>💬</span> Chat on WhatsApp</a></div>
+      </div>
+      <div class="fade-in">
+        <div class="map-card">
+          <div class="map-ph"><div class="map-pin">📍</div></div>
+          <div class="map-footer"><p>Sewadham Road, Mandoli Village, Delhi</p><a href="https://maps.google.com/?q=Sewadham+Road+Mandoli+Village+near+Bank+of+Baroda+Delhi" target="_blank" class="btn-map">Open in Google Maps →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="instagram" style="padding:3rem 2rem;background:var(--off-white)">
+  <div class="container">
+    <div class="insta-strip fade-in">
+      <div class="insta-info"><h3>📸 Follow @hub23brandsmandoli</h3><p>Daily stock updates, new arrivals, and exclusive offers.</p></div>
+      <a href="https://www.instagram.com/hub23brandsmandoli/" target="_blank" class="btn-insta">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+<footer><div class="footer-logo">HUB23 BRANDS</div><p class="footer-sub">Mandoli, Delhi · Premium branded fashion · Open 365 days</p></footer>
+<script>
+  const ICON_MAP={"men":"👕","women":"👗","kids":"👶","foot":"👟","bag":"🎒","watch":"⌚","sport":"🏃","ethnic":"👘","winter":"🧥"};
+  function getIcon(c){const s=(c||'').toLowerCase();for(const[k,v]of Object.entries(ICON_MAP)){if(s.includes(k))return v;}return'🏷️';}
+  function getBadgeClass(t){const s=(t||'').toLowerCase();if(s.includes('hot')||s.includes('trend')||s.includes('limit'))return'hot';return'';}
+  const stockData = [{"name":"Men's Wear","category":"Men's Wear","desc":"T-shirts, shirts, trousers & jackets.","tag":"🔥 Hot Picks","status":"active","photo":""},{"name":"Women's Wear","category":"Women's Wear","desc":"Tops, dresses, ethnic sets.","tag":"New Arrival","status":"active","photo":""},{"name":"Footwear","category":"Footwear","desc":"Sneakers, sandals & sports shoes.","tag":"Just Arrived","status":"active","photo":""},{"name":"Kids' Wear","category":"Kids' Wear","desc":"Branded clothing for all ages.","tag":"In Stock","status":"active","photo":""}];
+  const offersData = [{"name":"Mega Sale","discount":"UP TO 90% OFF","desc":"Discounts on premium brands updated regularly.","expiry":"","status":"active"}];
+  const annData = {"text":"","status":"active"};
+  function renderStock(){
+    const g=document.getElementById('stock-grid');
+    if(!stockData.length){g.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:3rem">No stock items at the moment. Check back soon!</p>';return;}
+    g.innerHTML=stockData.map(i=>`<div class="stock-card fade-in">${i.photo?`<img src="${i.photo}" class="card-img" onerror="this.style.display='none'"/>`:`<div class="card-icon">${getIcon(i.category)}</div>`}<div class="card-name">${i.name}</div><div class="card-desc">${i.desc}</div><span class="card-badge ${getBadgeClass(i.tag)}">${i.tag}</span></div>`).join('');
+    observeFade();
+  }
+  function renderOffers(){
+    const g=document.getElementById('offers-grid');
+    if(!offersData.length){g.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem">No offers right now. Check back soon!</p>';return;}
+    g.innerHTML=offersData.map(o=>`<div class="offer-card fade-in"><div class="offer-pct">${o.discount}</div><div class="offer-title">${o.name}</div><div class="offer-desc">${o.desc}</div>${o.expiry?`<div class="offer-expiry">Valid till: ${o.expiry}</div>`:''}</div>`).join('');
+    observeFade();
+  }
+  function renderAnn(){
+    if(annData.status==='active'&&annData.text){
+      const b=document.getElementById('ann-bar');
+      document.getElementById('ann-txt').textContent=annData.text;
+      b.style.display='block';
+    }
+  }
+  function observeFade(){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>obs.observe(el));
+  }
+  renderStock();renderOffers();renderAnn();observeFade();
+</script>
+</body>
+</html>
