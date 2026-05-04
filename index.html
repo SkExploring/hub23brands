@@ -34,7 +34,19 @@
       padding: 0.85rem 2rem;
       border-bottom: 1px solid rgba(232,160,32,0.2);
     }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); letter-spacing: 2px; }
+    .nav-logo { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: 24px; 
+      color: var(--gold); 
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
@@ -65,6 +77,15 @@
       background: radial-gradient(circle, rgba(232,160,32,0.18) 0%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none;
+    }
+    .hero-logo {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .hero-logo img {
+      height: 100px;
+      width: auto;
+      max-width: 200px;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -283,7 +304,21 @@
       background: var(--dark); border-top: 1px solid rgba(255,255,255,0.07);
       padding: 2rem; text-align: center;
     }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); letter-spacing: 3px; margin-bottom: 0.5rem; }
+    .footer-logo { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: 28px; 
+      color: var(--gold); 
+      letter-spacing: 3px; 
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .footer-logo img {
+      height: 35px;
+      width: auto;
+    }
     .footer-sub { font-size: 13px; color: var(--muted); }
 
     /* FADE-IN ANIMATION */
@@ -304,7 +339,10 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">HUB23</div>
+  <div class="nav-logo">
+    <img src="logo.png" alt="Hub23 Brands">
+    HUB23
+  </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#stock">Fresh Stock</a></li>
@@ -318,6 +356,9 @@
 <div class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
+  <div class="hero-logo">
+    <img src="logo.png" alt="Hub23 Brands">
+  </div>
   <div class="hero-badge">📍 Mandoli Village, Delhi</div>
   <h1>HUB<span>23</span><br>BRANDS</h1>
   <p class="hero-sub">Your destination for premium branded fashion — genuine stock, unbeatable prices, updated daily.</p>
@@ -525,7 +566,10 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">HUB23 BRANDS</div>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Hub23 Brands">
+    HUB23 BRANDS
+  </div>
   <p class="footer-sub">Mandoli, Delhi &nbsp;·&nbsp; Premium branded fashion &nbsp;·&nbsp; Open 365 days</p>
 </footer>
 
