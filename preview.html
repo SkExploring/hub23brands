@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>23 Brand Hub</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<style>
+body {
+    background: #0b1320;
+    color: white;
+    font-family: sans-serif;
+}
+.glass {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="flex justify-between items-center px-6 py-4 border-b border-gray-800">
+    <h1 class="text-xl font-bold tracking-wide">23 HUB</h1>
+
+    <div class="flex gap-4 items-center">
+        <a href="https://instagram.com/hub23brandsmandoli" target="_blank" class="text-sm opacity-80 hover:opacity-100">Instagram</a>
+        <a href="https://wa.me/917838124123" class="bg-blue-500 px-4 py-2 rounded text-sm">WhatsApp</a>
+    </div>
+</header>
+
+<!-- HERO BANNER -->
+<section id="banner" class="relative h-[60vh] overflow-hidden"></section>
+
+<!-- FOOTWEAR -->
+<section class="p-6">
+    <h2 class="text-2xl mb-4 font-semibold">Footwear</h2>
+    <div id="footwear" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+</section>
+
+<!-- CLOTHING -->
+<section class="p-6">
+    <h2 class="text-2xl mb-4 font-semibold">Clothing</h2>
+    <div id="clothing" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 border-t border-gray-800 text-sm opacity-70">
+    © 2026 23 Brand Hub
+</footer>
+
+<script>
+
+// 🔷 🔥 FIREBASE CONFIG (REPLACE WITH YOUR DETAILS)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// 🔷 🔥 LOAD BANNERS
+const banner = document.getElementById("banner");
+
+db.collection("banners").onSnapshot(snapshot => {
+    banner.innerHTML = "";
+
+    snapshot.forEach(doc => {
+        const b = doc.data();
+
+        if (b.active) {
+            banner.innerHTML += `
+            <div class="absolute w-full h-full">
+                <img src="${b.image}" class="w-full h-full object-cover"/>
+                <div class="absolute bottom-10 left-10">
+                    <h2 class="text-4xl font-bold">${b.title}</h2>
+                </div>
+            </div>
+            `;
+        }
+    });
+});
+
+// 🔷 🔥 RENDER PRODUCTS
+function renderProducts(data, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+
+    data.forEach(p => {
+        container.innerHTML += `
+        <div class="glass p-3 rounded-xl hover:scale-105 transition duration-300">
+
+            <img src="${p.image}" class="w-full h-40 object-cover rounded"/>
+
+            <h3 class="mt-2 font-semibold">${p.name}</h3>
+            <p class="text-sm opacity-70">${p.price}</p>
+
+            ${!p.stock ? `<p class="text-red-500 text-xs">Sold Out</p>` : ""}
+
+            <a href="https://wa.me/917838124123?text=Hi, I'm interested in ${p.name} from 23 Brand Hub. Please share details."
+               class="block mt-2 bg-blue-500 text-center py-1 rounded text-sm">
+               Enquire
+            </a>
+
+        </div>
+        `;
+    });
+}
+
+// 🔷 🔥 LOAD PRODUCTS
+db.collection("products").onSnapshot(snapshot => {
+
+    let footwear = [];
+    let clothing = [];
+
+    snapshot.forEach(doc => {
+        const p = doc.data();
+
+        if (p.category === "Footwear") footwear.push(p);
+        else clothing.push(p);
+    });
+
+    renderProducts(footwear, "footwear");
+    renderProducts(clothing, "clothing");
+});
+
+</script>
+
+</body>
+</html>
