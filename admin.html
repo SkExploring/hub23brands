@@ -19,167 +19,640 @@
       --success: #25d366;
       --danger: #e05555;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; }
+    body { 
+      font-family: 'DM Sans', sans-serif; 
+      background: var(--dark); 
+      color: var(--text); 
+      min-height: 100vh; 
+    }
 
     /* LOGIN */
     #login-screen {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
       background: var(--dark);
-      position: relative; overflow: hidden;
+      position: relative; 
+      overflow: hidden;
     }
+    
     .login-grid {
-      position: absolute; inset: 0; opacity: 0.05;
+      position: absolute; 
+      inset: 0; 
+      opacity: 0.05;
       background-image: linear-gradient(var(--gold) 1px, transparent 1px), linear-gradient(90deg, var(--gold) 1px, transparent 1px);
       background-size: 48px 48px;
     }
+    
     .login-glow {
-      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      position: absolute; 
+      width: 500px; 
+      height: 500px; 
+      border-radius: 50%;
       background: radial-gradient(circle, rgba(232,160,32,0.15) 0%, transparent 70%);
-      top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%,-50%); 
+      pointer-events: none;
     }
+    
     .login-box {
-      background: var(--dark2); border: 1px solid rgba(232,160,32,0.2);
-      border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 380px;
-      position: relative; z-index: 1;
+      background: var(--dark2); 
+      border: 1px solid rgba(232,160,32,0.2);
+      border-radius: 16px; 
+      padding: 2.5rem; 
+      width: 100%; 
+      max-width: 380px;
+      position: relative; 
+      z-index: 1;
     }
-    .login-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); letter-spacing: 3px; margin-bottom: 4px; }
-    .login-sub { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
-    .login-box label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+    
+    .login-logo { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: 32px; 
+      color: var(--gold); 
+      letter-spacing: 3px; 
+      margin-bottom: 4px; 
+    }
+    
+    .login-sub { 
+      font-size: 13px; 
+      color: var(--muted); 
+      margin-bottom: 2rem; 
+    }
+    
+    .login-box label { 
+      font-size: 12px; 
+      color: var(--muted); 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      display: block; 
+      margin-bottom: 6px; 
+    }
+    
     .login-box input {
-      width: 100%; background: var(--dark3); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; padding: 10px 14px; color: var(--text); font-size: 14px;
-      font-family: 'DM Sans', sans-serif; outline: none; margin-bottom: 1rem;
+      width: 100%; 
+      background: var(--dark3); 
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; 
+      padding: 10px 14px; 
+      color: var(--text); 
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif; 
+      outline: none; 
+      margin-bottom: 1rem;
       transition: border-color 0.2s;
     }
+    
     .login-box input:focus { border-color: var(--gold); }
+    
     .btn-login {
-      width: 100%; background: var(--gold); color: #fff; border: none;
-      border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 500;
-      cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+      width: 100%; 
+      background: var(--gold); 
+      color: #fff; 
+      border: none;
+      border-radius: 8px; 
+      padding: 12px; 
+      font-size: 15px; 
+      font-weight: 500;
+      cursor: pointer; 
+      font-family: 'DM Sans', sans-serif; 
+      transition: background 0.2s;
     }
+    
     .btn-login:hover { background: var(--gold-light); }
-    .login-error { font-size: 13px; color: var(--danger); margin-top: 0.75rem; display: none; text-align: center; }
+    
+    .login-error { 
+      font-size: 13px; 
+      color: var(--danger); 
+      margin-top: 0.75rem; 
+      display: none; 
+      text-align: center; 
+    }
+    
+    .login-hint {
+      margin-top: 1.5rem;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    
+    .login-hint code {
+      color: var(--gold);
+      font-family: monospace;
+    }
 
     /* ADMIN LAYOUT */
-    #admin-screen { display: none; min-height: 100vh; }
-    .admin-header {
-      background: var(--dark2); border-bottom: 1px solid rgba(232,160,32,0.15);
-      padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 50;
+    #admin-screen { 
+      display: none; 
+      min-height: 100vh; 
     }
-    .admin-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--gold); letter-spacing: 2px; }
-    .admin-logo span { font-size: 13px; font-weight: 400; color: var(--muted); font-family: 'DM Sans', sans-serif; letter-spacing: 0; margin-left: 10px; }
-    .btn-logout { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--muted); padding: 6px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-    .btn-logout:hover { border-color: var(--danger); color: var(--danger); }
+    
+    .admin-header {
+      background: var(--dark2); 
+      border-bottom: 1px solid rgba(232,160,32,0.15);
+      padding: 1rem 2rem; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      position: sticky; 
+      top: 0; 
+      z-index: 50;
+    }
+    
+    .admin-logo { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: 22px; 
+      color: var(--gold); 
+      letter-spacing: 2px; 
+    }
+    
+    .admin-logo span { 
+      font-size: 13px; 
+      font-weight: 400; 
+      color: var(--muted); 
+      font-family: 'DM Sans', sans-serif; 
+      letter-spacing: 0; 
+      margin-left: 10px; 
+    }
+    
+    .btn-logout { 
+      background: transparent; 
+      border: 1px solid rgba(255,255,255,0.15); 
+      color: var(--muted); 
+      padding: 6px 16px; 
+      border-radius: 6px; 
+      font-size: 13px; 
+      cursor: pointer; 
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+    }
+    
+    .btn-logout:hover { 
+      border-color: var(--danger); 
+      color: var(--danger); 
+    }
 
-    .admin-body { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 57px); }
+    .admin-body { 
+      display: grid; 
+      grid-template-columns: 220px 1fr; 
+      min-height: calc(100vh - 57px); 
+    }
 
     /* SIDEBAR */
-    .sidebar { background: var(--dark2); border-right: 1px solid rgba(255,255,255,0.06); padding: 1.5rem 0; }
-    .sidebar-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; padding: 0 1.25rem; margin-bottom: 0.5rem; margin-top: 1rem; }
+    .sidebar { 
+      background: var(--dark2); 
+      border-right: 1px solid rgba(255,255,255,0.06); 
+      padding: 1.5rem 0; 
+    }
+    
+    .sidebar-label { 
+      font-size: 10px; 
+      color: var(--muted); 
+      text-transform: uppercase; 
+      letter-spacing: 1.5px; 
+      padding: 0 1.25rem; 
+      margin-bottom: 0.5rem; 
+      margin-top: 1rem; 
+    }
+    
     .sidebar-link {
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px 1.25rem; font-size: 14px; color: var(--muted);
-      cursor: pointer; transition: all 0.15s; border-left: 2px solid transparent;
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      padding: 10px 1.25rem; 
+      font-size: 14px; 
+      color: var(--muted);
+      cursor: pointer; 
+      transition: all 0.15s; 
+      border-left: 2px solid transparent;
       text-decoration: none;
     }
-    .sidebar-link:hover { color: var(--text); background: rgba(255,255,255,0.03); }
-    .sidebar-link.active { color: var(--gold); border-left-color: var(--gold); background: rgba(232,160,32,0.07); }
-    .sidebar-icon { font-size: 16px; width: 20px; text-align: center; }
+    
+    .sidebar-link:hover { 
+      color: var(--text); 
+      background: rgba(255,255,255,0.03); 
+    }
+    
+    .sidebar-link.active { 
+      color: var(--gold); 
+      border-left-color: var(--gold); 
+      background: rgba(232,160,32,0.07); 
+    }
+    
+    .sidebar-icon { 
+      font-size: 16px; 
+      width: 20px; 
+      text-align: center; 
+    }
 
     /* MAIN */
-    .main { padding: 2rem; overflow-y: auto; }
-    .page { display: none; }
-    .page.active { display: block; }
+    .main { 
+      padding: 2rem; 
+      overflow-y: auto; 
+    }
+    
+    .page { 
+      display: none; 
+    }
+    
+    .page.active { 
+      display: block; 
+    }
 
-    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; color: var(--text); margin-bottom: 0.25rem; }
-    .page-sub { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
+    .page-title { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: 32px; 
+      letter-spacing: 2px; 
+      color: var(--text); 
+      margin-bottom: 0.25rem; 
+    }
+    
+    .page-sub { 
+      font-size: 13px; 
+      color: var(--muted); 
+      margin-bottom: 2rem; 
+    }
 
     /* DASHBOARD STATS */
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 2rem; }
-    .stat-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 1.25rem; }
-    .stat-card .s-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .stat-card .s-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); line-height: 1; }
-    .stat-card .s-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .stats-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+      gap: 14px; 
+      margin-bottom: 2rem; 
+    }
+    
+    .stat-card { 
+      background: var(--surface); 
+      border: 1px solid rgba(255,255,255,0.07); 
+      border-radius: var(--radius); 
+      padding: 1.25rem; 
+    }
+    
+    .stat-card .s-label { 
+      font-size: 11px; 
+      color: var(--muted); 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      margin-bottom: 6px; 
+    }
+    
+    .stat-card .s-num { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: 36px; 
+      color: var(--gold); 
+      line-height: 1; 
+    }
+    
+    .stat-card .s-sub { 
+      font-size: 12px; 
+      color: var(--muted); 
+      margin-top: 4px; 
+    }
 
     /* CARDS LIST */
-    .items-list { display: flex; flex-direction: column; gap: 10px; }
+    .items-list { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 10px; 
+    }
+    
     .item-row {
-      background: var(--surface); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius); padding: 1rem 1.25rem;
-      display: flex; align-items: center; gap: 14px;
+      background: var(--surface); 
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius); 
+      padding: 1rem 1.25rem;
+      display: flex; 
+      align-items: center; 
+      gap: 14px;
       transition: border-color 0.2s;
     }
-    .item-row:hover { border-color: rgba(232,160,32,0.25); }
-    .item-icon { font-size: 24px; width: 36px; text-align: center; flex-shrink: 0; }
-    .item-info { flex: 1; }
-    .item-name { font-size: 14px; font-weight: 500; color: var(--text); }
-    .item-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .item-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
-    .badge-active { background: rgba(37,211,102,0.15); color: #25d366; border: 1px solid rgba(37,211,102,0.25); }
-    .badge-inactive { background: rgba(120,120,120,0.15); color: #888; border: 1px solid rgba(120,120,120,0.2); }
-    .badge-hot { background: rgba(220,50,50,0.15); color: #f07070; border: 1px solid rgba(220,50,50,0.25); }
-    .item-actions { display: flex; gap: 8px; }
-    .btn-edit { background: rgba(232,160,32,0.1); border: 1px solid rgba(232,160,32,0.25); color: var(--gold); padding: 5px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-    .btn-edit:hover { background: rgba(232,160,32,0.2); }
-    .btn-delete { background: rgba(224,85,85,0.1); border: 1px solid rgba(224,85,85,0.2); color: var(--danger); padding: 5px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-    .btn-delete:hover { background: rgba(224,85,85,0.2); }
-    .btn-toggle { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--muted); padding: 5px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-    .btn-toggle:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+    
+    .item-row:hover { 
+      border-color: rgba(232,160,32,0.25); 
+    }
+    
+    .item-icon { 
+      font-size: 24px; 
+      width: 36px; 
+      text-align: center; 
+      flex-shrink: 0; 
+    }
+    
+    .item-info { 
+      flex: 1; 
+    }
+    
+    .item-name { 
+      font-size: 14px; 
+      font-weight: 500; 
+      color: var(--text); 
+    }
+    
+    .item-meta { 
+      font-size: 12px; 
+      color: var(--muted); 
+      margin-top: 2px; 
+    }
+    
+    .item-badge { 
+      font-size: 10px; 
+      padding: 2px 8px; 
+      border-radius: 10px; 
+      font-weight: 500; 
+    }
+    
+    .badge-active { 
+      background: rgba(37,211,102,0.15); 
+      color: #25d366; 
+      border: 1px solid rgba(37,211,102,0.25); 
+    }
+    
+    .badge-inactive { 
+      background: rgba(120,120,120,0.15); 
+      color: #888; 
+      border: 1px solid rgba(120,120,120,0.2); 
+    }
+    
+    .item-actions { 
+      display: flex; 
+      gap: 8px; 
+    }
+    
+    .btn-edit, .btn-delete, .btn-toggle { 
+      border-radius: 6px; 
+      font-size: 12px; 
+      cursor: pointer; 
+      font-family: 'DM Sans', sans-serif;
+      padding: 5px 14px;
+      border: 1px solid;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    
+    .btn-edit { 
+      background: rgba(232,160,32,0.1); 
+      border-color: rgba(232,160,32,0.25); 
+      color: var(--gold); 
+    }
+    
+    .btn-edit:hover { 
+      background: rgba(232,160,32,0.2); 
+    }
+    
+    .btn-delete { 
+      background: rgba(224,85,85,0.1); 
+      border-color: rgba(224,85,85,0.2); 
+      color: var(--danger); 
+    }
+    
+    .btn-delete:hover { 
+      background: rgba(224,85,85,0.2); 
+    }
+    
+    .btn-toggle { 
+      background: rgba(255,255,255,0.05); 
+      border-color: rgba(255,255,255,0.1); 
+      color: var(--muted); 
+    }
+    
+    .btn-toggle:hover { 
+      background: rgba(255,255,255,0.1); 
+      color: var(--text); 
+    }
 
     /* FORM */
-    .form-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
-    .form-title { font-size: 15px; font-weight: 500; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
-    .form-group input, .form-group select, .form-group textarea {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; padding: 9px 12px; color: var(--text); font-size: 14px;
-      font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s;
+    .form-card { 
+      background: var(--surface); 
+      border: 1px solid rgba(255,255,255,0.07); 
+      border-radius: var(--radius); 
+      padding: 1.5rem; 
+      margin-bottom: 1.5rem; 
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
-    .form-group textarea { resize: vertical; min-height: 80px; }
-    .form-group select option { background: var(--dark3); }
-    .form-actions { display: flex; gap: 10px; margin-top: 1.25rem; }
-    .btn-save { background: var(--gold); color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
-    .btn-save:hover { background: var(--gold-light); }
-    .btn-cancel { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--muted); padding: 10px 24px; border-radius: 8px; font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    
+    .form-title { 
+      font-size: 15px; 
+      font-weight: 500; 
+      margin-bottom: 1.25rem; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+    }
+    
+    .form-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 14px; 
+    }
+    
+    .form-group { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 6px; 
+    }
+    
+    .form-group.full { 
+      grid-column: 1 / -1; 
+    }
+    
+    .form-group label { 
+      font-size: 12px; 
+      color: var(--muted); 
+      text-transform: uppercase; 
+      letter-spacing: 0.8px; 
+    }
+    
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      background: var(--dark3); 
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; 
+      padding: 9px 12px; 
+      color: var(--text); 
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif; 
+      outline: none; 
+      transition: border-color 0.2s;
+    }
+    
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus { 
+      border-color: var(--gold); 
+    }
+    
+    .form-group textarea { 
+      resize: vertical; 
+      min-height: 80px; 
+    }
+    
+    .form-group select option { 
+      background: var(--dark3); 
+    }
+    
+    .form-error {
+      font-size: 12px;
+      color: var(--danger);
+      margin-top: 4px;
+    }
+    
+    .form-actions { 
+      display: flex; 
+      gap: 10px; 
+      margin-top: 1.25rem; 
+    }
+    
+    .btn-save, .btn-cancel { 
+      border: none;
+      border-radius: 8px; 
+      font-size: 14px; 
+      cursor: pointer; 
+      font-family: 'DM Sans', sans-serif;
+      padding: 10px 24px;
+      transition: all 0.2s;
+    }
+    
+    .btn-save { 
+      background: var(--gold); 
+      color: #fff; 
+      font-weight: 500;
+    }
+    
+    .btn-save:hover { 
+      background: var(--gold-light); 
+    }
+    
+    .btn-cancel { 
+      background: transparent; 
+      border: 1px solid rgba(255,255,255,0.15); 
+      color: var(--muted); 
+    }
+    
+    .btn-cancel:hover {
+      border-color: rgba(255,255,255,0.3);
+      color: var(--text);
+    }
 
     /* ADD NEW BTN */
-    .btn-add-new { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-bottom: 1.5rem; transition: background 0.2s; }
-    .btn-add-new:hover { background: var(--gold-light); }
+    .btn-add-new { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      background: var(--gold); 
+      color: #fff; 
+      border: none; 
+      padding: 10px 20px; 
+      border-radius: 8px; 
+      font-size: 14px; 
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s;
+    }
+    
+    .btn-add-new:hover { 
+      background: var(--gold-light); 
+    }
 
     /* TOAST */
     #toast {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-      background: var(--dark2); border: 1px solid rgba(37,211,102,0.4);
-      color: var(--success); padding: 12px 20px; border-radius: 10px;
-      font-size: 14px; font-weight: 500; display: none;
+      position: fixed; 
+      bottom: 2rem; 
+      right: 2rem; 
+      z-index: 999;
+      background: var(--dark2); 
+      border: 1px solid rgba(37,211,102,0.4);
+      color: var(--success); 
+      padding: 12px 20px; 
+      border-radius: 10px;
+      font-size: 14px; 
+      font-weight: 500; 
+      display: none;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       animation: toastIn 0.3s ease;
     }
-    @keyframes toastIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    
+    #toast.error {
+      border-color: rgba(224,85,85,0.4);
+      color: var(--danger);
+    }
+    
+    @keyframes toastIn { 
+      from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+      } 
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      } 
+    }
 
     /* EXPORT BOX */
-    .export-box { background: var(--dark2); border: 1px solid rgba(232,160,32,0.2); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
-    .export-box h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
-    .export-box p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
-    .code-block { background: var(--dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem; font-size: 12px; color: #aad4ff; font-family: monospace; word-break: break-all; line-height: 1.6; margin-bottom: 1rem; max-height: 120px; overflow-y: auto; }
-    .btn-copy { background: var(--dark3); border: 1px solid rgba(255,255,255,0.1); color: var(--muted); padding: 8px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-    .btn-copy:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .export-box { 
+      background: var(--dark2); 
+      border: 1px solid rgba(232,160,32,0.2); 
+      border-radius: var(--radius); 
+      padding: 1.5rem; 
+      margin-bottom: 1.5rem; 
+    }
+    
+    .export-box h3 { 
+      font-size: 15px; 
+      font-weight: 500; 
+      margin-bottom: 0.5rem; 
+    }
+    
+    .export-box p { 
+      font-size: 13px; 
+      color: var(--muted); 
+      line-height: 1.6; 
+      margin-bottom: 1rem; 
+    }
+    
+    .export-box strong {
+      color: var(--gold);
+    }
 
-    .empty-state { text-align: center; padding: 3rem; color: var(--muted); font-size: 14px; }
-    .empty-icon { font-size: 40px; margin-bottom: 1rem; }
+    .empty-state { 
+      text-align: center; 
+      padding: 3rem; 
+      color: var(--muted); 
+      font-size: 14px; 
+    }
+    
+    .empty-icon { 
+      font-size: 40px; 
+      margin-bottom: 1rem; 
+    }
 
     @media (max-width: 680px) {
-      .admin-body { grid-template-columns: 1fr; }
-      .sidebar { display: flex; overflow-x: auto; padding: 0.5rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .sidebar-label { display: none; }
-      .form-grid { grid-template-columns: 1fr; }
+      .admin-body { 
+        grid-template-columns: 1fr; 
+      }
+      .sidebar { 
+        display: flex; 
+        overflow-x: auto; 
+        padding: 0.5rem; 
+        border-right: none; 
+        border-bottom: 1px solid rgba(255,255,255,0.06); 
+      }
+      .sidebar-label { 
+        display: none; 
+      }
+      .form-grid { 
+        grid-template-columns: 1fr; 
+      }
     }
   </style>
 </head>
@@ -193,11 +666,11 @@
     <div class="login-logo">HUB23</div>
     <div class="login-sub">Admin Panel — Enter your password to continue</div>
     <label>Password</label>
-    <input type="password" id="password-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()"/>
-    <button class="btn-login" onclick="doLogin()">Login →</button>
+    <input type="password" id="password-input" placeholder="Enter password"/>
+    <button class="btn-login" onclick="app.auth.login()">Login →</button>
     <div class="login-error" id="login-error">Incorrect password. Try again.</div>
-    <div style="margin-top:1.5rem;font-size:11px;color:var(--muted);text-align:center">
-      Change your password by editing the <code style="color:var(--gold)">ADMIN_PASSWORD</code> value in this file
+    <div class="login-hint">
+      Change your password by editing the <code>ADMIN_PASSWORD</code> value in this file
     </div>
   </div>
 </div>
@@ -206,27 +679,27 @@
 <div id="admin-screen">
   <div class="admin-header">
     <div class="admin-logo">HUB23 <span>Admin Panel</span></div>
-    <button class="btn-logout" onclick="doLogout()">Logout</button>
+    <button class="btn-logout" onclick="app.auth.logout()">Logout</button>
   </div>
   <div class="admin-body">
 
     <!-- SIDEBAR -->
     <div class="sidebar">
       <div class="sidebar-label">Menu</div>
-      <div class="sidebar-link active" onclick="showPage('dashboard')" data-page="dashboard">
+      <div class="sidebar-link active" onclick="app.nav.showPage('dashboard')" data-page="dashboard">
         <span class="sidebar-icon">📊</span> Dashboard
       </div>
-      <div class="sidebar-link" onclick="showPage('stock')" data-page="stock">
+      <div class="sidebar-link" onclick="app.nav.showPage('stock')" data-page="stock">
         <span class="sidebar-icon">👕</span> Stock Items
       </div>
-      <div class="sidebar-link" onclick="showPage('offers')" data-page="offers">
+      <div class="sidebar-link" onclick="app.nav.showPage('offers')" data-page="offers">
         <span class="sidebar-icon">🏷️</span> Offers
       </div>
-      <div class="sidebar-link" onclick="showPage('announcement')" data-page="announcement">
+      <div class="sidebar-link" onclick="app.nav.showPage('announcement')" data-page="announcement">
         <span class="sidebar-icon">📢</span> Announcement
       </div>
       <div class="sidebar-label">Tools</div>
-      <div class="sidebar-link" onclick="showPage('export')" data-page="export">
+      <div class="sidebar-link" onclick="app.nav.showPage('export')" data-page="export">
         <span class="sidebar-icon">📤</span> Export & Publish
       </div>
       <div class="sidebar-link" onclick="window.open('index.html','_blank')">
@@ -256,17 +729,7 @@
             </div>
             <div class="form-group">
               <label>Category</label>
-              <select id="q-cat">
-                <option value="Men's Wear">Men's Wear</option>
-                <option value="Women's Wear">Women's Wear</option>
-                <option value="Kids' Wear">Kids' Wear</option>
-                <option value="Footwear">Footwear</option>
-                <option value="Bags & Accessories">Bags & Accessories</option>
-                <option value="Watches & More">Watches & More</option>
-                <option value="Sports Wear">Sports Wear</option>
-                <option value="Ethnic Wear">Ethnic Wear</option>
-                <option value="Winterwear">Winterwear</option>
-              </select>
+              <select id="q-cat"></select>
             </div>
             <div class="form-group full">
               <label>Description</label>
@@ -274,15 +737,7 @@
             </div>
             <div class="form-group">
               <label>Tag</label>
-              <select id="q-tag">
-                <option value="New Arrival">New Arrival</option>
-                <option value="🔥 Hot Picks">🔥 Hot Picks</option>
-                <option value="Just Arrived">Just Arrived</option>
-                <option value="Fresh Drop">Fresh Drop</option>
-                <option value="In Stock">In Stock</option>
-                <option value="Limited Stock">Limited Stock</option>
-                <option value="Sold Out">Sold Out</option>
-              </select>
+              <select id="q-tag"></select>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -293,7 +748,7 @@
             </div>
           </div>
           <div class="form-actions">
-            <button class="btn-save" onclick="quickAddStock()">Add to Stock</button>
+            <button class="btn-save" onclick="app.stock.quickAdd()">Add to Stock</button>
           </div>
         </div>
       </div>
@@ -302,7 +757,7 @@
       <div class="page" id="page-stock">
         <div class="page-title">Stock Items</div>
         <div class="page-sub">Add, edit or hide items from your website</div>
-        <button class="btn-add-new" onclick="openStockForm()">+ Add New Item</button>
+        <button class="btn-add-new" onclick="app.stock.openForm()">+ Add New Item</button>
 
         <!-- Add/Edit Form -->
         <div class="form-card" id="stock-form" style="display:none">
@@ -311,20 +766,12 @@
             <div class="form-group">
               <label>Item Name *</label>
               <input type="text" id="s-name" placeholder="e.g. Adidas Tracksuit"/>
+              <div class="form-error" id="s-name-error"></div>
             </div>
             <div class="form-group">
               <label>Category *</label>
-              <select id="s-cat">
-                <option value="Men's Wear">Men's Wear</option>
-                <option value="Women's Wear">Women's Wear</option>
-                <option value="Kids' Wear">Kids' Wear</option>
-                <option value="Footwear">Footwear</option>
-                <option value="Bags & Accessories">Bags & Accessories</option>
-                <option value="Watches & More">Watches & More</option>
-                <option value="Sports Wear">Sports Wear</option>
-                <option value="Ethnic Wear">Ethnic Wear</option>
-                <option value="Winterwear">Winterwear</option>
-              </select>
+              <select id="s-cat"></select>
+              <div class="form-error" id="s-cat-error"></div>
             </div>
             <div class="form-group full">
               <label>Description</label>
@@ -332,15 +779,7 @@
             </div>
             <div class="form-group">
               <label>Tag</label>
-              <select id="s-tag">
-                <option value="New Arrival">New Arrival</option>
-                <option value="🔥 Hot Picks">🔥 Hot Picks</option>
-                <option value="Just Arrived">Just Arrived</option>
-                <option value="Fresh Drop">Fresh Drop</option>
-                <option value="In Stock">In Stock</option>
-                <option value="Limited Stock">Limited Stock</option>
-                <option value="Sold Out">Sold Out</option>
-              </select>
+              <select id="s-tag"></select>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -356,8 +795,8 @@
           </div>
           <input type="hidden" id="s-edit-idx" value="-1"/>
           <div class="form-actions">
-            <button class="btn-save" onclick="saveStockItem()">Save Item</button>
-            <button class="btn-cancel" onclick="closeStockForm()">Cancel</button>
+            <button class="btn-save" onclick="app.stock.save()">Save Item</button>
+            <button class="btn-cancel" onclick="app.stock.closeForm()">Cancel</button>
           </div>
         </div>
 
@@ -368,7 +807,7 @@
       <div class="page" id="page-offers">
         <div class="page-title">Offers</div>
         <div class="page-sub">Manage your discount offers and deals</div>
-        <button class="btn-add-new" onclick="openOfferForm()">+ Add New Offer</button>
+        <button class="btn-add-new" onclick="app.offers.openForm()">+ Add New Offer</button>
 
         <div class="form-card" id="offer-form" style="display:none">
           <div class="form-title" id="offer-form-title">➕ New Offer</div>
@@ -376,10 +815,12 @@
             <div class="form-group">
               <label>Offer Title *</label>
               <input type="text" id="o-name" placeholder="e.g. Winter Sale"/>
+              <div class="form-error" id="o-name-error"></div>
             </div>
             <div class="form-group">
               <label>Discount *</label>
               <input type="text" id="o-discount" placeholder="e.g. UP TO 70% OFF"/>
+              <div class="form-error" id="o-discount-error"></div>
             </div>
             <div class="form-group full">
               <label>Description</label>
@@ -399,8 +840,8 @@
           </div>
           <input type="hidden" id="o-edit-idx" value="-1"/>
           <div class="form-actions">
-            <button class="btn-save" onclick="saveOffer()">Save Offer</button>
-            <button class="btn-cancel" onclick="closeOfferForm()">Cancel</button>
+            <button class="btn-save" onclick="app.offers.save()">Save Offer</button>
+            <button class="btn-cancel" onclick="app.offers.closeForm()">Cancel</button>
           </div>
         </div>
 
@@ -427,7 +868,7 @@
             </div>
           </div>
           <div class="form-actions">
-            <button class="btn-save" onclick="saveAnnouncement()">Save Announcement</button>
+            <button class="btn-save" onclick="app.announcement.save()">Save Announcement</button>
           </div>
         </div>
         <div class="form-card" id="ann-preview" style="display:none">
@@ -445,19 +886,19 @@
 
         <div class="export-box">
           <h3>📋 How this works</h3>
-          <p>This admin panel saves everything in your browser. To publish changes to your live website, click <strong style="color:var(--gold)">Generate Code</strong> below — it creates a ready-to-upload <code>index.html</code> file with all your latest content baked in.</p>
+          <p>This admin panel saves everything in your browser. To publish changes to your live website, click <strong>Generate Code</strong> below — it creates an updated index.html file with all your content.</p>
           <p style="margin-top:0.5rem">Then upload that file to GitHub (replace the old one) and your site updates in 2 minutes.</p>
         </div>
 
         <div class="form-card">
           <div class="form-title">🚀 Generate & Download</div>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6">Click the button to download your updated <code style="color:var(--gold)">index.html</code> with all current stock, offers and announcements embedded.</p>
-          <button class="btn-save" onclick="generateAndDownload()" style="font-size:15px;padding:12px 32px;">⬇ Download index.html</button>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6">Click the button to download your updated <strong>index.html</strong> with all current content.</p>
+          <button class="btn-save" onclick="app.export.generate()" style="font-size:15px;padding:12px 32px;">⬇ Download index.html</button>
         </div>
 
         <div class="export-box">
           <h3>📤 Upload to GitHub (reminder)</h3>
-          <p>1. Go to <strong style="color:var(--gold)">github.com/skexploring/hub23brands</strong><br>
+          <p>1. Go to <strong>github.com/skexploring/hub23brands</strong><br>
           2. Click <strong>index.html</strong> → ✏️ pencil icon<br>
           3. Select all (Ctrl+A) and paste the new code<br>
           4. Click <strong>Commit changes</strong><br>
@@ -473,304 +914,486 @@
 
 <script>
   // ============================================================
-  // CHANGE THIS PASSWORD TO YOUR OWN
+  // CONFIGURATION
   // ============================================================
-  const ADMIN_PASSWORD = 'hub23admin';
-
-  // ---- AUTH ----
-  function doLogin() {
-    const val = document.getElementById('password-input').value;
-    if (val === ADMIN_PASSWORD) {
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('admin-screen').style.display = 'block';
-      loadAll();
-    } else {
-      document.getElementById('login-error').style.display = 'block';
-      document.getElementById('password-input').value = '';
+  
+  const CONFIG = {
+    ADMIN_PASSWORD: 'hub23admin', // CHANGE THIS TO YOUR OWN PASSWORD
+    CATEGORIES: [
+      "Men's Wear",
+      "Women's Wear",
+      "Kids' Wear",
+      "Footwear",
+      "Bags & Accessories",
+      "Watches & More",
+      "Sports Wear",
+      "Ethnic Wear",
+      "Winterwear"
+    ],
+    TAGS: [
+      "New Arrival",
+      "🔥 Hot Picks",
+      "Just Arrived",
+      "Fresh Drop",
+      "In Stock",
+      "Limited Stock",
+      "Sold Out"
+    ],
+    ICON_MAP: {
+      "men": "👕",
+      "women": "👗",
+      "kids": "👶",
+      "foot": "👟",
+      "bag": "🎒",
+      "watch": "⌚",
+      "sport": "🏃",
+      "ethnic": "👘",
+      "winter": "🧥"
     }
-  }
-  function doLogout() {
-    document.getElementById('login-screen').style.display = 'flex';
-    document.getElementById('admin-screen').style.display = 'none';
-    document.getElementById('password-input').value = '';
-  }
+  };
 
-  // ---- DATA (localStorage) ----
-  function getData(key, def) { try { return JSON.parse(localStorage.getItem('hub23_' + key)) || def; } catch { return def; } }
-  function setData(key, val) { localStorage.setItem('hub23_' + key, JSON.stringify(val)); }
+  // ============================================================
+  // UTILITY FUNCTIONS
+  // ============================================================
+  
+  const utils = {
+    getData(key, def = null) {
+      try {
+        return JSON.parse(localStorage.getItem('hub23_' + key)) || def;
+      } catch (e) {
+        console.error('Error reading data:', e);
+        return def;
+      }
+    },
 
-  let stockItems = [];
-  let offerItems = [];
-  let announcement = { text: '', status: 'inactive' };
+    setData(key, val) {
+      try {
+        localStorage.setItem('hub23_' + key, JSON.stringify(val));
+      } catch (e) {
+        console.error('Error saving data:', e);
+        throw new Error('Failed to save data. Storage may be full.');
+      }
+    },
 
-  function loadAll() {
-    stockItems = getData('stock', [
-      { name: "Men's Wear", category: "Men's Wear", desc: "T-shirts, shirts, trousers & jackets.", tag: "🔥 Hot Picks", status: "active", photo: "" },
-      { name: "Women's Wear", category: "Women's Wear", desc: "Tops, dresses, ethnic sets.", tag: "New Arrival", status: "active", photo: "" },
-      { name: "Footwear", category: "Footwear", desc: "Sneakers, sandals & sports shoes.", tag: "Just Arrived", status: "active", photo: "" },
-      { name: "Kids' Wear", category: "Kids' Wear", desc: "Branded clothing for all ages.", tag: "In Stock", status: "active", photo: "" },
-      { name: "Bags & Accessories", category: "Bags & Accessories", desc: "Backpacks, handbags & wallets.", tag: "Fresh Drop", status: "active", photo: "" },
-      { name: "Watches & More", category: "Watches & More", desc: "Classic & sports watches.", tag: "Limited Stock", status: "active", photo: "" },
-    ]);
-    offerItems = getData('offers', [
-      { name: "Mega Sale", discount: "UP TO 90% OFF", desc: "Discounts on premium brands updated regularly.", expiry: "", status: "active" },
-    ]);
-    announcement = getData('announcement', { text: '', status: 'inactive' });
-    renderAll();
-  }
+    safeText(text) {
+      const el = document.createElement('div');
+      el.textContent = text || '';
+      return el.innerHTML;
+    },
 
-  function renderAll() {
-    renderStockList();
-    renderOffersList();
-    renderAnnPanel();
-    updateDashboard();
-  }
+    getIcon(category) {
+      const c = (category || '').toLowerCase();
+      for (const [k, v] of Object.entries(CONFIG.ICON_MAP)) {
+        if (c.includes(k)) return v;
+      }
+      return '🏷️';
+    },
 
-  function updateDashboard() {
-    document.getElementById('stat-stock').textContent = stockItems.length;
-    document.getElementById('stat-active').textContent = stockItems.filter(i => i.status === 'active').length;
-    document.getElementById('stat-offers').textContent = offerItems.filter(i => i.status === 'active').length;
-    document.getElementById('stat-ann').textContent = announcement.status === 'active' ? 'ON' : 'OFF';
-  }
+    toast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.toggle('error', isError);
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    },
 
-  // ---- NAVIGATION ----
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-    document.getElementById('page-' + name).classList.add('active');
-    document.querySelector(`[data-page="${name}"]`)?.classList.add('active');
-  }
-
-  // ---- STOCK ----
-  const ICON_MAP = { "men": "👕", "women": "👗", "kids": "👶", "foot": "👟", "bag": "🎒", "watch": "⌚", "sport": "🏃", "ethnic": "👘", "winter": "🧥" };
-  function getIcon(cat) {
-    const c = (cat||'').toLowerCase();
-    for (const [k,v] of Object.entries(ICON_MAP)) { if (c.includes(k)) return v; }
-    return '🏷️';
-  }
-
-  function renderStockList() {
-    const list = document.getElementById('stock-list');
-    if (!stockItems.length) { list.innerHTML = '<div class="empty-state"><div class="empty-icon">📦</div>No stock items yet. Add your first one!</div>'; return; }
-    list.innerHTML = stockItems.map((item, idx) => `
-      <div class="item-row">
-        <div class="item-icon">${item.photo ? `<img src="${item.photo}" style="width:36px;height:36px;border-radius:6px;object-fit:cover" onerror="this.outerHTML='${getIcon(item.category)}'"/>` : getIcon(item.category)}</div>
-        <div class="item-info">
-          <div class="item-name">${item.name}</div>
-          <div class="item-meta">${item.category} · ${item.tag}</div>
-        </div>
-        <span class="item-badge ${item.status === 'active' ? 'badge-active' : 'badge-inactive'}">${item.status}</span>
-        <div class="item-actions">
-          <button class="btn-toggle" onclick="toggleStock(${idx})">${item.status === 'active' ? 'Hide' : 'Show'}</button>
-          <button class="btn-edit" onclick="editStock(${idx})">Edit</button>
-          <button class="btn-delete" onclick="deleteStock(${idx})">Delete</button>
-        </div>
-      </div>`).join('');
-  }
-
-  function openStockForm(reset=true) {
-    if (reset) {
-      document.getElementById('s-name').value = '';
-      document.getElementById('s-desc').value = '';
-      document.getElementById('s-photo').value = '';
-      document.getElementById('s-tag').value = 'New Arrival';
-      document.getElementById('s-status').value = 'active';
-      document.getElementById('s-edit-idx').value = '-1';
-      document.getElementById('stock-form-title').textContent = '➕ New Stock Item';
+    debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
     }
-    document.getElementById('stock-form').style.display = 'block';
-    document.getElementById('stock-form').scrollIntoView({ behavior: 'smooth' });
-  }
-  function closeStockForm() { document.getElementById('stock-form').style.display = 'none'; }
+  };
 
-  function editStock(idx) {
-    const item = stockItems[idx];
-    document.getElementById('s-name').value = item.name;
-    document.getElementById('s-cat').value = item.category;
-    document.getElementById('s-desc').value = item.desc;
-    document.getElementById('s-tag').value = item.tag;
-    document.getElementById('s-status').value = item.status;
-    document.getElementById('s-photo').value = item.photo || '';
-    document.getElementById('s-edit-idx').value = idx;
-    document.getElementById('stock-form-title').textContent = '✏️ Edit Stock Item';
-    openStockForm(false);
-  }
+  // ============================================================
+  // VALIDATION
+  // ============================================================
+  
+  const validation = {
+    stockItem(item) {
+      const errors = {};
+      if (!item.name?.trim()) errors.name = 'Item name is required';
+      if (!item.category) errors.category = 'Category is required';
+      if (item.photo && !this.isValidUrl(item.photo)) {
+        errors.photo = 'Photo URL must be valid';
+      }
+      return errors;
+    },
 
-  function saveStockItem() {
-    const name = document.getElementById('s-name').value.trim();
-    if (!name) { alert('Please enter an item name.'); return; }
-    const item = {
-      name, category: document.getElementById('s-cat').value,
-      desc: document.getElementById('s-desc').value.trim(),
-      tag: document.getElementById('s-tag').value,
-      status: document.getElementById('s-status').value,
-      photo: document.getElementById('s-photo').value.trim()
-    };
-    const editIdx = parseInt(document.getElementById('s-edit-idx').value);
-    if (editIdx >= 0) { stockItems[editIdx] = item; } else { stockItems.push(item); }
-    setData('stock', stockItems);
-    closeStockForm();
-    renderStockList();
-    updateDashboard();
-    showToast('Stock item saved!');
-  }
+    offer(item) {
+      const errors = {};
+      if (!item.name?.trim()) errors.name = 'Offer title is required';
+      if (!item.discount?.trim()) errors.discount = 'Discount text is required';
+      return errors;
+    },
 
-  function deleteStock(idx) {
-    if (!confirm('Delete this item?')) return;
-    stockItems.splice(idx, 1);
-    setData('stock', stockItems);
-    renderStockList();
-    updateDashboard();
-    showToast('Item deleted.');
-  }
+    isValidUrl(str) {
+      try {
+        new URL(str);
+        return true;
+      } catch {
+        return false;
+      }
+    },
 
-  function toggleStock(idx) {
-    stockItems[idx].status = stockItems[idx].status === 'active' ? 'inactive' : 'active';
-    setData('stock', stockItems);
-    renderStockList();
-    updateDashboard();
-    showToast('Status updated!');
-  }
-
-  function quickAddStock() {
-    const name = document.getElementById('q-name').value.trim();
-    if (!name) { alert('Please enter an item name.'); return; }
-    stockItems.push({
-      name, category: document.getElementById('q-cat').value,
-      desc: document.getElementById('q-desc').value.trim(),
-      tag: document.getElementById('q-tag').value,
-      status: document.getElementById('q-status').value,
-      photo: ''
-    });
-    setData('stock', stockItems);
-    document.getElementById('q-name').value = '';
-    document.getElementById('q-desc').value = '';
-    renderStockList();
-    updateDashboard();
-    showToast('Stock item added!');
-  }
-
-  // ---- OFFERS ----
-  function renderOffersList() {
-    const list = document.getElementById('offers-list');
-    if (!offerItems.length) { list.innerHTML = '<div class="empty-state"><div class="empty-icon">🏷️</div>No offers yet.</div>'; return; }
-    list.innerHTML = offerItems.map((item, idx) => `
-      <div class="item-row">
-        <div class="item-icon">🏷️</div>
-        <div class="item-info">
-          <div class="item-name">${item.name} <span style="color:var(--gold);font-size:13px">${item.discount}</span></div>
-          <div class="item-meta">${item.desc}${item.expiry ? ' · Till ' + item.expiry : ''}</div>
-        </div>
-        <span class="item-badge ${item.status === 'active' ? 'badge-active' : 'badge-inactive'}">${item.status}</span>
-        <div class="item-actions">
-          <button class="btn-toggle" onclick="toggleOffer(${idx})">${item.status === 'active' ? 'Hide' : 'Show'}</button>
-          <button class="btn-edit" onclick="editOffer(${idx})">Edit</button>
-          <button class="btn-delete" onclick="deleteOffer(${idx})">Delete</button>
-        </div>
-      </div>`).join('');
-  }
-
-  function openOfferForm(reset=true) {
-    if (reset) {
-      document.getElementById('o-name').value = '';
-      document.getElementById('o-discount').value = '';
-      document.getElementById('o-desc').value = '';
-      document.getElementById('o-expiry').value = '';
-      document.getElementById('o-status').value = 'active';
-      document.getElementById('o-edit-idx').value = '-1';
-      document.getElementById('offer-form-title').textContent = '➕ New Offer';
+    displayErrors(errors, prefix) {
+      document.querySelectorAll(`[id^="${prefix}-"][id$="-error"]`).forEach(el => {
+        el.textContent = '';
+      });
+      for (const [field, msg] of Object.entries(errors)) {
+        const errorEl = document.getElementById(`${prefix}-${field}-error`);
+        if (errorEl) errorEl.textContent = msg;
+      }
     }
-    document.getElementById('offer-form').style.display = 'block';
-    document.getElementById('offer-form').scrollIntoView({ behavior: 'smooth' });
-  }
-  function closeOfferForm() { document.getElementById('offer-form').style.display = 'none'; }
+  };
 
-  function editOffer(idx) {
-    const item = offerItems[idx];
-    document.getElementById('o-name').value = item.name;
-    document.getElementById('o-discount').value = item.discount;
-    document.getElementById('o-desc').value = item.desc;
-    document.getElementById('o-expiry').value = item.expiry || '';
-    document.getElementById('o-status').value = item.status;
-    document.getElementById('o-edit-idx').value = idx;
-    document.getElementById('offer-form-title').textContent = '✏️ Edit Offer';
-    openOfferForm(false);
-  }
+  // ============================================================
+  // APP STATE & METHODS
+  // ============================================================
 
-  function saveOffer() {
-    const name = document.getElementById('o-name').value.trim();
-    if (!name) { alert('Please enter an offer title.'); return; }
-    const item = {
-      name, discount: document.getElementById('o-discount').value.trim(),
-      desc: document.getElementById('o-desc').value.trim(),
-      expiry: document.getElementById('o-expiry').value.trim(),
-      status: document.getElementById('o-status').value
-    };
-    const editIdx = parseInt(document.getElementById('o-edit-idx').value);
-    if (editIdx >= 0) { offerItems[editIdx] = item; } else { offerItems.push(item); }
-    setData('offers', offerItems);
-    closeOfferForm();
-    renderOffersList();
-    updateDashboard();
-    showToast('Offer saved!');
-  }
+  const app = {
+    state: {
+      stockItems: [],
+      offerItems: [],
+      announcement: { text: '', status: 'inactive' }
+    },
 
-  function deleteOffer(idx) {
-    if (!confirm('Delete this offer?')) return;
-    offerItems.splice(idx, 1);
-    setData('offers', offerItems);
-    renderOffersList();
-    updateDashboard();
-    showToast('Offer deleted.');
-  }
+    auth: {
+      login() {
+        const input = document.getElementById('password-input');
+        const value = input.value;
 
-  function toggleOffer(idx) {
-    offerItems[idx].status = offerItems[idx].status === 'active' ? 'inactive' : 'active';
-    setData('offers', offerItems);
-    renderOffersList();
-    updateDashboard();
-    showToast('Status updated!');
-  }
+        if (value === CONFIG.ADMIN_PASSWORD) {
+          document.getElementById('login-screen').style.display = 'none';
+          document.getElementById('admin-screen').style.display = 'block';
+          app.init();
+        } else {
+          document.getElementById('login-error').style.display = 'block';
+          input.value = '';
+          input.focus();
+        }
+      },
 
-  // ---- ANNOUNCEMENT ----
-  function renderAnnPanel() {
-    document.getElementById('ann-text').value = announcement.text || '';
-    document.getElementById('ann-status').value = announcement.status || 'inactive';
-    if (announcement.text) {
-      document.getElementById('ann-preview').style.display = 'block';
-      document.getElementById('ann-preview-text').textContent = announcement.text;
-    }
-  }
+      logout() {
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('admin-screen').style.display = 'none';
+        document.getElementById('password-input').value = '';
+        document.getElementById('login-error').style.display = 'none';
+      }
+    },
 
-  function saveAnnouncement() {
-    announcement = { text: document.getElementById('ann-text').value.trim(), status: document.getElementById('ann-status').value };
-    setData('announcement', announcement);
-    renderAnnPanel();
-    updateDashboard();
-    showToast('Announcement saved!');
-  }
+    nav: {
+      showPage(name) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        document.getElementById('page-' + name).classList.add('active');
+        document.querySelector(`[data-page="${name}"]`)?.classList.add('active');
+      }
+    },
 
-  // ---- GENERATE & DOWNLOAD ----
-  function generateAndDownload() {
-    const activeStock = stockItems.filter(i => i.status === 'active');
-    const activeOffers = offerItems.filter(i => i.status === 'active');
-    const ann = announcement;
+    stock: {
+      openForm(reset = true) {
+        if (reset) {
+          document.getElementById('s-name').value = '';
+          document.getElementById('s-cat').value = CONFIG.CATEGORIES[0];
+          document.getElementById('s-desc').value = '';
+          document.getElementById('s-tag').value = CONFIG.TAGS[0];
+          document.getElementById('s-status').value = 'active';
+          document.getElementById('s-photo').value = '';
+          document.getElementById('s-edit-idx').value = '-1';
+          document.getElementById('stock-form-title').textContent = '➕ New Stock Item';
+          validation.displayErrors({}, 's');
+        }
+        document.getElementById('stock-form').style.display = 'block';
+        document.getElementById('stock-form').scrollIntoView({ behavior: 'smooth' });
+      },
 
-    const stockJS = JSON.stringify(activeStock);
-    const offersJS = JSON.stringify(activeOffers);
-    const annJS = JSON.stringify(ann);
+      closeForm() {
+        document.getElementById('stock-form').style.display = 'none';
+      },
 
-    const html = generateHTML(stockJS, offersJS, annJS);
-    const blob = new Blob([html], { type: 'text/html' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'index.html';
-    a.click();
-    showToast('index.html downloaded!');
-  }
+      edit(idx) {
+        const item = app.state.stockItems[idx];
+        document.getElementById('s-name').value = item.name;
+        document.getElementById('s-cat').value = item.category;
+        document.getElementById('s-desc').value = item.desc;
+        document.getElementById('s-tag').value = item.tag;
+        document.getElementById('s-status').value = item.status;
+        document.getElementById('s-photo').value = item.photo || '';
+        document.getElementById('s-edit-idx').value = idx;
+        document.getElementById('stock-form-title').textContent = '✏️ Edit Stock Item';
+        this.openForm(false);
+      },
 
-  function generateHTML(stockJS, offersJS, annJS) {
-    return `<!DOCTYPE html>
+      save() {
+        const item = {
+          name: document.getElementById('s-name').value.trim(),
+          category: document.getElementById('s-cat').value,
+          desc: document.getElementById('s-desc').value.trim(),
+          tag: document.getElementById('s-tag').value,
+          status: document.getElementById('s-status').value,
+          photo: document.getElementById('s-photo').value.trim()
+        };
+
+        const errors = validation.stockItem(item);
+        if (Object.keys(errors).length > 0) {
+          validation.displayErrors(errors, 's');
+          return;
+        }
+
+        const editIdx = parseInt(document.getElementById('s-edit-idx').value);
+        if (editIdx >= 0) {
+          app.state.stockItems[editIdx] = item;
+        } else {
+          app.state.stockItems.push(item);
+        }
+
+        utils.setData('stock', app.state.stockItems);
+        this.closeForm();
+        this.render();
+        app.dashboard.update();
+        utils.toast('Stock item saved!');
+      },
+
+      delete(idx) {
+        if (!confirm('Delete this item?')) return;
+        app.state.stockItems.splice(idx, 1);
+        utils.setData('stock', app.state.stockItems);
+        this.render();
+        app.dashboard.update();
+        utils.toast('Item deleted.');
+      },
+
+      toggle(idx) {
+        app.state.stockItems[idx].status = app.state.stockItems[idx].status === 'active' ? 'inactive' : 'active';
+        utils.setData('stock', app.state.stockItems);
+        this.render();
+        app.dashboard.update();
+        utils.toast('Status updated!');
+      },
+
+      quickAdd() {
+        const name = document.getElementById('q-name').value.trim();
+        if (!name) {
+          utils.toast('Please enter an item name.', true);
+          return;
+        }
+
+        app.state.stockItems.push({
+          name,
+          category: document.getElementById('q-cat').value,
+          desc: document.getElementById('q-desc').value.trim(),
+          tag: document.getElementById('q-tag').value,
+          status: document.getElementById('q-status').value,
+          photo: ''
+        });
+
+        utils.setData('stock', app.state.stockItems);
+        document.getElementById('q-name').value = '';
+        document.getElementById('q-desc').value = '';
+        this.render();
+        app.dashboard.update();
+        utils.toast('Stock item added!');
+      },
+
+      render() {
+        const list = document.getElementById('stock-list');
+        if (!app.state.stockItems.length) {
+          list.innerHTML = '<div class="empty-state"><div class="empty-icon">📦</div>No stock items yet. Add your first one!</div>';
+          return;
+        }
+
+        list.innerHTML = app.state.stockItems.map((item, idx) => `
+          <div class="item-row">
+            <div class="item-icon">
+              ${item.photo ? `<img src="${utils.safeText(item.photo)}" style="width:36px;height:36px;border-radius:6px;object-fit:cover" onerror="this.outerHTML='${utils.getIcon(item.category)}'"/>` : utils.getIcon(item.category)}
+            </div>
+            <div class="item-info">
+              <div class="item-name">${utils.safeText(item.name)}</div>
+              <div class="item-meta">${utils.safeText(item.category)} · ${utils.safeText(item.tag)}</div>
+            </div>
+            <span class="item-badge ${item.status === 'active' ? 'badge-active' : 'badge-inactive'}">${item.status}</span>
+            <div class="item-actions">
+              <button class="btn-toggle" onclick="app.stock.toggle(${idx})">${item.status === 'active' ? 'Hide' : 'Show'}</button>
+              <button class="btn-edit" onclick="app.stock.edit(${idx})">Edit</button>
+              <button class="btn-delete" onclick="app.stock.delete(${idx})">Delete</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    },
+
+    offers: {
+      openForm(reset = true) {
+        if (reset) {
+          document.getElementById('o-name').value = '';
+          document.getElementById('o-discount').value = '';
+          document.getElementById('o-desc').value = '';
+          document.getElementById('o-expiry').value = '';
+          document.getElementById('o-status').value = 'active';
+          document.getElementById('o-edit-idx').value = '-1';
+          document.getElementById('offer-form-title').textContent = '➕ New Offer';
+          validation.displayErrors({}, 'o');
+        }
+        document.getElementById('offer-form').style.display = 'block';
+        document.getElementById('offer-form').scrollIntoView({ behavior: 'smooth' });
+      },
+
+      closeForm() {
+        document.getElementById('offer-form').style.display = 'none';
+      },
+
+      edit(idx) {
+        const item = app.state.offerItems[idx];
+        document.getElementById('o-name').value = item.name;
+        document.getElementById('o-discount').value = item.discount;
+        document.getElementById('o-desc').value = item.desc;
+        document.getElementById('o-expiry').value = item.expiry || '';
+        document.getElementById('o-status').value = item.status;
+        document.getElementById('o-edit-idx').value = idx;
+        document.getElementById('offer-form-title').textContent = '✏️ Edit Offer';
+        this.openForm(false);
+      },
+
+      save() {
+        const item = {
+          name: document.getElementById('o-name').value.trim(),
+          discount: document.getElementById('o-discount').value.trim(),
+          desc: document.getElementById('o-desc').value.trim(),
+          expiry: document.getElementById('o-expiry').value.trim(),
+          status: document.getElementById('o-status').value
+        };
+
+        const errors = validation.offer(item);
+        if (Object.keys(errors).length > 0) {
+          validation.displayErrors(errors, 'o');
+          return;
+        }
+
+        const editIdx = parseInt(document.getElementById('o-edit-idx').value);
+        if (editIdx >= 0) {
+          app.state.offerItems[editIdx] = item;
+        } else {
+          app.state.offerItems.push(item);
+        }
+
+        utils.setData('offers', app.state.offerItems);
+        this.closeForm();
+        this.render();
+        app.dashboard.update();
+        utils.toast('Offer saved!');
+      },
+
+      delete(idx) {
+        if (!confirm('Delete this offer?')) return;
+        app.state.offerItems.splice(idx, 1);
+        utils.setData('offers', app.state.offerItems);
+        this.render();
+        app.dashboard.update();
+        utils.toast('Offer deleted.');
+      },
+
+      toggle(idx) {
+        app.state.offerItems[idx].status = app.state.offerItems[idx].status === 'active' ? 'inactive' : 'active';
+        utils.setData('offers', app.state.offerItems);
+        this.render();
+        app.dashboard.update();
+        utils.toast('Status updated!');
+      },
+
+      render() {
+        const list = document.getElementById('offers-list');
+        if (!app.state.offerItems.length) {
+          list.innerHTML = '<div class="empty-state"><div class="empty-icon">🏷️</div>No offers yet.</div>';
+          return;
+        }
+
+        list.innerHTML = app.state.offerItems.map((item, idx) => `
+          <div class="item-row">
+            <div class="item-icon">🏷️</div>
+            <div class="item-info">
+              <div class="item-name">${utils.safeText(item.name)} <span style="color:var(--gold);font-size:13px">${utils.safeText(item.discount)}</span></div>
+              <div class="item-meta">${utils.safeText(item.desc)}${item.expiry ? ' · Till ' + utils.safeText(item.expiry) : ''}</div>
+            </div>
+            <span class="item-badge ${item.status === 'active' ? 'badge-active' : 'badge-inactive'}">${item.status}</span>
+            <div class="item-actions">
+              <button class="btn-toggle" onclick="app.offers.toggle(${idx})">${item.status === 'active' ? 'Hide' : 'Show'}</button>
+              <button class="btn-edit" onclick="app.offers.edit(${idx})">Edit</button>
+              <button class="btn-delete" onclick="app.offers.delete(${idx})">Delete</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    },
+
+    announcement: {
+      save() {
+        app.state.announcement = {
+          text: document.getElementById('ann-text').value.trim(),
+          status: document.getElementById('ann-status').value
+        };
+        utils.setData('announcement', app.state.announcement);
+        this.render();
+        app.dashboard.update();
+        utils.toast('Announcement saved!');
+      },
+
+      render() {
+        document.getElementById('ann-text').value = app.state.announcement.text || '';
+        document.getElementById('ann-status').value = app.state.announcement.status || 'inactive';
+        if (app.state.announcement.text) {
+          document.getElementById('ann-preview').style.display = 'block';
+          document.getElementById('ann-preview-text').textContent = app.state.announcement.text;
+        } else {
+          document.getElementById('ann-preview').style.display = 'none';
+        }
+      }
+    },
+
+    dashboard: {
+      update() {
+        document.getElementById('stat-stock').textContent = app.state.stockItems.length;
+        document.getElementById('stat-active').textContent = app.state.stockItems.filter(i => i.status === 'active').length;
+        document.getElementById('stat-offers').textContent = app.state.offerItems.filter(i => i.status === 'active').length;
+        document.getElementById('stat-ann').textContent = app.state.announcement.status === 'active' ? 'ON' : 'OFF';
+      }
+    },
+
+    export: {
+      generate() {
+        try {
+          const activeStock = app.state.stockItems.filter(i => i.status === 'active');
+          const activeOffers = app.state.offerItems.filter(i => i.status === 'active');
+          const ann = app.state.announcement;
+
+          const html = this.generateHTML(activeStock, activeOffers, ann);
+          const blob = new Blob([html], { type: 'text/html' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'index.html';
+          a.click();
+          URL.revokeObjectURL(url);
+          utils.toast('index.html downloaded!');
+        } catch (e) {
+          console.error('Export error:', e);
+          utils.toast('Failed to generate file.', true);
+        }
+      },
+
+      generateHTML(stockData, offersData, annData) {
+        const stockJS = JSON.stringify(stockData);
+        const offersJS = JSON.stringify(offersData);
+        const annJS = JSON.stringify(annData);
+
+        return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -782,25 +1405,27 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--dark);overflow-x:hidden;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,26,0.94);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;border-bottom:1px solid rgba(232,160,32,0.2);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,26,0.94);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;height:57px;}
     .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold);letter-spacing:2px;}
     .nav-links{display:flex;gap:2rem;list-style:none;}
     .nav-links a{color:#ccc;text-decoration:none;font-size:13px;transition:color .2s;}
     .nav-links a:hover{color:var(--gold);}
-    .nav-cta{background:var(--gold);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;}
+    .nav-cta{background:var(--gold);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:background .2s;}
+    .nav-cta:hover{background:var(--gold-light);}
     #ann-bar{display:none;background:var(--gold);padding:.6rem 2rem;text-align:center;margin-top:57px;}
     #ann-bar p{font-size:13px;font-weight:500;color:#fff;}
     .hero{min-height:100vh;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
     .hero-grid{position:absolute;inset:0;opacity:.07;background-image:linear-gradient(var(--gold) 1px,transparent 1px),linear-gradient(90deg,var(--gold) 1px,transparent 1px);background-size:48px 48px;}
     .hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,0.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.35);color:var(--gold);font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;position:relative;}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.35);color:var(--gold);font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;margin-bottom:1rem;}
     .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,12vw,120px);color:#fff;line-height:.9;letter-spacing:4px;position:relative;}
     .hero h1 span{color:var(--gold);}
     .hero-sub{font-size:16px;color:var(--muted);max-width:480px;margin:1.5rem auto 2.5rem;line-height:1.7;position:relative;}
     .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
-    .btn-gold{background:var(--gold);color:#fff;border:none;padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;}
+    .btn-gold{background:var(--gold);color:#fff;border:none;padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:all .2s;}
     .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
-    .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.25);padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:border-color .2s,transform .15s;}
+    .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.25);padding:13px 30px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:all .2s;}
+    .btn-ghost:hover{border-color:#fff;}
     .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:11px;letter-spacing:1px;text-transform:uppercase;}
     .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sa 1.8s ease-in-out infinite;}
     @keyframes sa{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
@@ -815,7 +1440,7 @@
     .stat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);line-height:1;}
     .stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
     .about-visual{background:var(--dark2);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;border:1px solid rgba(232,160,32,0.2);position:relative;overflow:hidden;}
-    .about-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,0.25) 0%,transparent 70%);}
+    .about-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,0.25) 0%,transparent 70%);pointer-events:none;}
     .about-visual-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px;margin-bottom:.25rem;}
     .about-visual-sub{font-size:12px;color:var(--muted);margin-bottom:2rem;}
     .pill-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
@@ -829,7 +1454,7 @@
     .card-icon{font-size:32px;margin-bottom:1rem;}
     .card-name{font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;}
     .card-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:1rem;}
-    .card-badge{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.3);color:var(--gold);text-transform:uppercase;letter-spacing:.5px;}
+    .card-badge{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.3);color:var(--gold);text-transform:uppercase;}
     .card-badge.hot{background:rgba(220,50,50,0.15);border-color:rgba(220,50,50,0.3);color:#f07070;}
     #offers{background:var(--off-white);}
     .offers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:2rem;}
@@ -849,23 +1474,31 @@
     .whatsapp-card{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);border-radius:var(--radius);padding:1.25rem;text-align:center;}
     .whatsapp-card h4{color:#fff;font-size:15px;font-weight:500;margin-bottom:.5rem;}
     .whatsapp-card p{font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6;}
-    .btn-wa{background:#25d366;color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;}
+    .btn-wa{background:#25d366;color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;transition:background .2s;}
+    .btn-wa:hover{background:#20b358;}
     .map-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);overflow:hidden;}
     .map-ph{height:200px;background:#1e2e20;display:flex;align-items:center;justify-content:center;position:relative;}
     .map-pin{font-size:36px;}
     .map-footer{padding:1rem 1.25rem;}
     .map-footer p{font-size:13px;color:var(--muted);margin-bottom:.75rem;}
-    .btn-map{display:block;text-align:center;background:var(--dark3);border:1px solid rgba(232,160,32,0.25);color:var(--gold);padding:10px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;}
-    .insta-strip{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);border-radius:var(--radius);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+    .btn-map{display:block;text-align:center;background:var(--dark3);border:1px solid rgba(232,160,32,0.25);color:var(--gold);padding:10px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s;}
+    .btn-map:hover{background:rgba(232,160,32,0.15);}
+    .insta-strip{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);border-radius:var(--radius);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
     .insta-info h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px;margin-bottom:4px;}
     .insta-info p{font-size:14px;color:rgba(255,255,255,0.8);}
-    .btn-insta{background:rgba(255,255,255,0.2);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;}
+    .btn-insta{background:rgba(255,255,255,0.2);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;display:inline-block;}
+    .btn-insta:hover{background:rgba(255,255,255,0.3);}
     footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.07);padding:2rem;text-align:center;}
     .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:3px;margin-bottom:.5rem;}
     .footer-sub{font-size:13px;color:var(--muted);}
     .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
     .fade-in.visible{opacity:1;transform:translateY(0);}
-    @media(max-width:680px){.about-grid,.contact-wrap{grid-template-columns:1fr;}.stats-row{flex-wrap:wrap;gap:1.25rem;}nav .nav-links{display:none;}}
+    @media(max-width:680px){
+      .about-grid,.contact-wrap{grid-template-columns:1fr;}
+      .stats-row{flex-wrap:wrap;gap:1.25rem;}
+      nav .nav-links{display:none;}
+      .insta-strip{flex-direction:column;text-align:center;}
+    }
   </style>
 </head>
 <body>
@@ -909,7 +1542,7 @@
         <div class="about-visual-title">What We Carry</div>
         <div class="about-visual-sub">Fresh arrivals across all categories</div>
         <div class="pill-grid">
-          <span class="pill">Men's Wear</span><span class="pill">Women's Wear</span><span class="pill">Kids' Collection</span><span class="pill">Footwear</span><span class="pill">Bags & Backpacks</span><span class="pill">Watches</span><span class="pill">Accessories</span><span class="pill">Sports Wear</span><span class="pill">Ethnic Wear</span><span class="pill">Winterwear</span>
+          <span class="pill">Men's Wear</span><span class="pill">Women's Wear</span><span class="pill">Kids' Collection</span><span class="pill">Footwear</span><span class="pill">Bags & Backpacks</span><span class="pill">Watches</span><span class="pill">Ethnic Wear</span><span class="pill">Winterwear</span>
         </div>
       </div>
     </div>
@@ -940,12 +1573,12 @@
         <div class="contact-card"><div class="cc-icon">🕐</div><div><div class="cc-label">Store Hours</div><div class="cc-value">Monday – Sunday | 10:00 AM – 9:00 PM</div></div></div>
         <div class="contact-card"><div class="cc-icon">📞</div><div><div class="cc-label">Call Us</div><div class="cc-value">+91 78381 24123</div></div></div>
         <div class="contact-card"><div class="cc-icon">📸</div><div><div class="cc-label">Instagram</div><div class="cc-value">@hub23brandsmandoli</div></div></div>
-        <div class="whatsapp-card"><h4>Get Stock Updates on WhatsApp</h4><p>Message us to ask about brands, sizes, or today's deals.</p><a href="https://wa.me/917838124123?text=Hi%20Hub23%20Brands!%20I%27d%20like%20to%20know%20about%20fresh%20stock." class="btn-wa" target="_blank"><span>💬</span> Chat on WhatsApp</a></div>
+        <div class="whatsapp-card"><h4>Get Stock Updates on WhatsApp</h4><p>Message us to ask about brands, sizes, or today's deals.</p><a href="https://wa.me/917838124123?text=Hi%20Hub23%20Brands%21%20Tell%20me%20about%20your%20stock." class="btn-wa">💬 WhatsApp Us</a></div>
       </div>
       <div class="fade-in">
         <div class="map-card">
           <div class="map-ph"><div class="map-pin">📍</div></div>
-          <div class="map-footer"><p>Sewadham Road, Mandoli Village, Delhi</p><a href="https://maps.google.com/?q=Sewadham+Road+Mandoli+Village+near+Bank+of+Baroda+Delhi" target="_blank" class="btn-map">Open in Google Maps →</a></div>
+          <div class="map-footer"><p>Sewadham Road, Mandoli Village, Delhi</p><a href="https://maps.google.com/?q=Sewadham+Road+Mandoli+Village+Delhi" target="_blank" class="btn-map">Open in Maps</a></div>
         </div>
       </div>
     </div>
@@ -963,6 +1596,7 @@
 <script>
   const ICON_MAP={"men":"👕","women":"👗","kids":"👶","foot":"👟","bag":"🎒","watch":"⌚","sport":"🏃","ethnic":"👘","winter":"🧥"};
   function getIcon(c){const s=(c||'').toLowerCase();for(const[k,v]of Object.entries(ICON_MAP)){if(s.includes(k))return v;}return'🏷️';}
+  function safeText(t){const e=document.createElement('div');e.textContent=t||'';return e.innerHTML;}
   function getBadgeClass(t){const s=(t||'').toLowerCase();if(s.includes('hot')||s.includes('trend')||s.includes('limit'))return'hot';return'';}
   const stockData = ${stockJS};
   const offersData = ${offersJS};
@@ -970,13 +1604,13 @@
   function renderStock(){
     const g=document.getElementById('stock-grid');
     if(!stockData.length){g.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:3rem">No stock items at the moment. Check back soon!</p>';return;}
-    g.innerHTML=stockData.map(i=>\`<div class="stock-card fade-in">\${i.photo?\`<img src="\${i.photo}" class="card-img" onerror="this.style.display='none'"/>\`:\`<div class="card-icon">\${getIcon(i.category)}</div>\`}<div class="card-name">\${i.name}</div><div class="card-desc">\${i.desc}</div><span class="card-badge \${getBadgeClass(i.tag)}">\${i.tag}</span></div>\`).join('');
+    g.innerHTML=stockData.map(i=>\`<div class="stock-card fade-in">\${i.photo?\`<img src="\${safeText(i.photo)}" class="card-img" onerror="this.style.display='none'"/>\`:\`<div class="card-icon">\${getIcon(i.category)}</div>\`}<div class="card-name">\${safeText(i.name)}</div><div class="card-desc">\${safeText(i.desc)}</div><span class="card-badge \${getBadgeClass(i.tag)}">\${safeText(i.tag)}</span></div>\`).join('');
     observeFade();
   }
   function renderOffers(){
     const g=document.getElementById('offers-grid');
     if(!offersData.length){g.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem">No offers right now. Check back soon!</p>';return;}
-    g.innerHTML=offersData.map(o=>\`<div class="offer-card fade-in"><div class="offer-pct">\${o.discount}</div><div class="offer-title">\${o.name}</div><div class="offer-desc">\${o.desc}</div>\${o.expiry?\`<div class="offer-expiry">Valid till: \${o.expiry}</div>\`:''}</div>\`).join('');
+    g.innerHTML=offersData.map(o=>\`<div class="offer-card fade-in"><div class="offer-pct">\${safeText(o.discount)}</div><div class="offer-title">\${safeText(o.name)}</div><div class="offer-desc">\${safeText(o.desc)}</div>\${o.expiry?\`<div class="offer-expiry">Valid till \${safeText(o.expiry)}</div>\`:''}</div>\`).join('');
     observeFade();
   }
   function renderAnn(){
@@ -994,15 +1628,57 @@
 <\/script>
 </body>
 </html>`;
-  }
+      }
+    },
 
-  // ---- TOAST ----
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = '✓ ' + msg;
-    t.style.display = 'block';
-    setTimeout(() => { t.style.display = 'none'; }, 2500);
-  }
+    init() {
+      // Load data
+      app.state.stockItems = utils.getData('stock', [
+        { name: "Men's Wear", category: "Men's Wear", desc: "T-shirts, shirts, trousers & jackets.", tag: "🔥 Hot Picks", status: "active", photo: "" },
+        { name: "Women's Wear", category: "Women's Wear", desc: "Tops, dresses, ethnic sets.", tag: "New Arrival", status: "active", photo: "" },
+        { name: "Footwear", category: "Footwear", desc: "Sneakers, sandals & sports shoes.", tag: "Just Arrived", status: "active", photo: "" },
+        { name: "Kids' Wear", category: "Kids' Wear", desc: "Branded clothing for all ages.", tag: "In Stock", status: "active", photo: "" },
+        { name: "Bags & Accessories", category: "Bags & Accessories", desc: "Backpacks, handbags & wallets.", tag: "Fresh Drop", status: "active", photo: "" },
+        { name: "Watches & More", category: "Watches & More", desc: "Classic & sports watches.", tag: "Limited Stock", status: "active", photo: "" },
+      ]);
+      app.state.offerItems = utils.getData('offers', [
+        { name: "Mega Sale", discount: "UP TO 90% OFF", desc: "Discounts on premium brands updated regularly.", expiry: "", status: "active" },
+      ]);
+      app.state.announcement = utils.getData('announcement', { text: '', status: 'inactive' });
+
+      // Populate select dropdowns
+      const categorySelects = ['q-cat', 's-cat'];
+      const tagSelects = ['q-tag', 's-tag'];
+
+      categorySelects.forEach(id => {
+        const select = document.getElementById(id);
+        select.innerHTML = CONFIG.CATEGORIES.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+      });
+
+      tagSelects.forEach(id => {
+        const select = document.getElementById(id);
+        select.innerHTML = CONFIG.TAGS.map(tag => `<option value="${tag}">${tag}</option>`).join('');
+      });
+
+      // Render initial views
+      app.stock.render();
+      app.offers.render();
+      app.announcement.render();
+      app.dashboard.update();
+
+      // Add Enter key support for password
+      document.getElementById('password-input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') app.auth.login();
+      });
+    }
+  };
+
+  // Initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Focus on password input for convenience
+    document.getElementById('password-input').focus();
+  });
 </script>
+
 </body>
 </html>
