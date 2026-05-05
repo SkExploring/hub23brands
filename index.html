@@ -37,19 +37,19 @@ nav{background:var(--white);border-bottom:2px solid var(--navy);position:sticky;
 .nav-brand{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--navy);letter-spacing:1px;line-height:1;}
 .nav-brand span{color:var(--accent);display:block;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;padding-bottom:2px;border-bottom:2px solid transparent;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;padding-bottom:2px;border-bottom:2px solid transpar[...]
 .nav-links a:hover{color:var(--accent);border-bottom-color:var(--accent);}
 .nav-actions{display:flex;gap:10px;align-items:center;}
-.btn-wa{background:var(--navy);color:var(--white);border:none;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:500;font-family:var(--font-body);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background .2s;}
+.btn-wa{background:var(--navy);color:var(--white);border:none;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:500;font-family:var(--font-body);cursor:pointer;text-decoration:none;display[...]
 .btn-wa:hover{background:var(--navy3);}
-.btn-insta{background:transparent;color:var(--navy);border:2px solid var(--navy);padding:7px 16px;border-radius:6px;font-size:13px;font-weight:500;font-family:var(--font-body);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s;}
+.btn-insta{background:transparent;color:var(--navy);border:2px solid var(--navy);padding:7px 16px;border-radius:6px;font-size:13px;font-weight:500;font-family:var(--font-body);cursor:pointer;text-deco[...]
 .btn-insta:hover{background:var(--navy);color:var(--white);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s;}
 
 /* ── HERO ── */
 .hero{background:var(--navy);min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0 2rem;}
-.hero-bg-text{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(160px,22vw,320px);font-weight:900;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;user-select:none;letter-spacing:-10px;}
+.hero-bg-text{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(160px,22vw,320px);font-weight:900;color:rgba(255,255,255,0.04);line-heigh[...]
 .hero-lines{position:absolute;left:0;bottom:0;right:0;top:0;pointer-events:none;}
 .hero-lines::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);}
 .hero-content{max-width:960px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
@@ -60,9 +60,9 @@ nav{background:var(--white);border-bottom:2px solid var(--navy);position:sticky;
 .hero-title span{color:var(--accent);display:block;}
 .hero-desc{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:400px;margin-bottom:2.5rem;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-primary{background:var(--accent);color:var(--navy);border:none;padding:14px 32px;border-radius:6px;font-size:13px;font-weight:600;font-family:var(--font-display);letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;}
+.btn-primary{background:var(--accent);color:var(--navy);border:none;padding:14px 32px;border-radius:6px;font-size:13px;font-weight:600;font-family:var(--font-display);letter-spacing:1px;text-transform[...]
 .btn-primary:hover{background:var(--accent2);transform:translateY(-2px);}
-.btn-secondary{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3);padding:13px 32px;border-radius:6px;font-size:13px;font-weight:500;font-family:var(--font-display);letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-secondary{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3);padding:13px 32px;border-radius:6px;font-size:13px;font-weight:500;font-family:var(--font-display);let[...]
 .btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
 .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);}
 .hero-stat .num{font-family:var(--font-display);font-size:36px;font-weight:800;color:var(--white);line-height:1;}
@@ -78,6 +78,24 @@ nav{background:var(--white);border-bottom:2px solid var(--navy);position:sticky;
 .hc-cat-count{margin-left:auto;font-size:11px;color:rgba(255,255,255,0.4);font-family:var(--font-display);}
 .hc-tag{font-size:9px;background:var(--accent);color:var(--navy);padding:2px 7px;border-radius:10px;margin-left:8px;font-weight:600;}
 
+/* ── BANNER SECTION ── */
+.banner-section{padding:0;overflow:hidden;}
+.banner-carousel{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;padding:1.5rem 2rem;}
+.banner-carousel::-webkit-scrollbar{height:6px;}
+.banner-carousel::-webkit-scrollbar-track{background:var(--off);}
+.banner-carousel::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+.banner-card{flex:0 0 100%;max-width:calc(100% - 1rem);background-size:cover;background-position:center;border-radius:var(--radius);min-height:200px;position:relative;overflow:hidden;transition:all .3s;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;}
+.banner-card:hover{transform:scale(1.02);}
+.banner-card::before{content:'';position:absolute;inset:0;background:rgba(13,27,42,0.3);z-index:1;}
+.banner-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:2rem;}
+.banner-title{font-family:var(--font-display);font-size:clamp(24px,5vw,36px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px;}
+.banner-desc{font-size:14px;color:rgba(255,255,255,0.8);margin-bottom:1rem;}
+.banner-cta{display:inline-block;background:var(--accent);color:var(--navy);padding:10px 24px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:background .2s;}
+.banner-cta:hover{background:var(--accent2);}
+.banner-dots{display:flex;justify-content:center;gap:6px;padding:12px 0;margin-top:8px;}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--off);cursor:pointer;transition:background .2s;}
+.dot.active{background:var(--accent);}
+
 /* ── SECTIONS ── */
 section{padding:5rem 2rem;}
 .container{max-width:1000px;margin:0 auto;}
@@ -85,12 +103,12 @@ section{padding:5rem 2rem;}
 .sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:6px;}
 .sec-title{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:800;color:var(--navy);letter-spacing:-0.5px;line-height:1;}
 .sec-sub{font-size:14px;color:var(--muted);margin-top:6px;}
-.view-all{font-size:12px;font-weight:600;color:var(--navy);text-decoration:none;text-transform:uppercase;letter-spacing:1px;border-bottom:1.5px solid var(--accent);padding-bottom:2px;white-space:nowrap;}
+.view-all{font-size:12px;font-weight:600;color:var(--navy);text-decoration:none;text-transform:uppercase;letter-spacing:1px;border-bottom:1.5px solid var(--accent);padding-bottom:2px;white-space:nowra[...]
 
 /* ── PRODUCT GRID ── */
 #products{background:var(--white);}
 .filter-bar{display:flex;gap:8px;margin-bottom:2rem;flex-wrap:wrap;}
-.filter-btn{background:transparent;border:1.5px solid #dde1e7;color:var(--muted);padding:7px 18px;border-radius:20px;font-size:12px;font-weight:500;font-family:var(--font-body);cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:.5px;}
+.filter-btn{background:transparent;border:1.5px solid #dde1e7;color:var(--muted);padding:7px 18px;border-radius:20px;font-size:12px;font-weight:500;font-family:var(--font-body);cursor:pointer;transiti[...]
 .filter-btn:hover,.filter-btn.active{background:var(--navy);border-color:var(--navy);color:var(--white);}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
 .product-card{background:var(--off);border-radius:var(--radius);overflow:hidden;border:1.5px solid #e8ecf0;transition:all .25s;cursor:pointer;}
@@ -107,9 +125,9 @@ section{padding:5rem 2rem;}
 .product-name{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.3;}
 .product-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px;}
 .product-actions{display:flex;gap:8px;}
-.btn-enquire{flex:1;background:var(--navy);color:var(--white);border:none;padding:9px;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--font-body);cursor:pointer;text-decoration:none;text-align:center;display:block;transition:background .2s;}
+.btn-enquire{flex:1;background:var(--navy);color:var(--white);border:none;padding:9px;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--font-body);cursor:pointer;text-decoration:none;[...]
 .btn-enquire:hover{background:var(--navy3);}
-.btn-enquire-wa{background:transparent;border:1.5px solid #25d366;color:#25d366;padding:9px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:var(--font-body);text-decoration:none;display:flex;align-items:center;transition:all .2s;}
+.btn-enquire-wa{background:transparent;border:1.5px solid #25d366;color:#25d366;padding:9px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:var(--font-body);text-decoration:none;displ[...]
 .btn-enquire-wa:hover{background:#25d366;color:var(--white);}
 .no-products{text-align:center;padding:4rem;color:var(--muted);grid-column:1/-1;}
 
@@ -141,7 +159,7 @@ section{padding:5rem 2rem;}
 #about{background:var(--white);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .about-visual{background:var(--navy);border-radius:16px;padding:3rem 2.5rem;position:relative;overflow:hidden;}
-.about-visual::before{content:'23';position:absolute;right:-20px;bottom:-30px;font-family:var(--font-display);font-size:180px;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;}
+.about-visual::before{content:'23';position:absolute;right:-20px;bottom:-30px;font-family:var(--font-display);font-size:180px;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;pointer-events:[...]
 .av-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;}
 .av-items{display:flex;flex-direction:column;gap:14px;}
 .av-item{display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.08);}
@@ -162,9 +180,9 @@ section{padding:5rem 2rem;}
 .cc-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px;}
 .cc-val{font-size:14px;font-weight:600;color:var(--navy);line-height:1.4;}
 .contact-ctas{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-wa-big{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:var(--white);border:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;text-decoration:none;transition:background .2s;}
+.btn-wa-big{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:var(--white);border:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--font-[...]
 .btn-wa-big:hover{background:#1ebe5a;}
-.btn-insta-big{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:var(--white);border:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;text-decoration:none;}
+.btn-insta-big{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:var(--white);border:none;padding:14px 28px;border-radius[...]
 
 /* ── MARQUEE ── */
 .marquee-section{background:var(--accent);padding:14px 0;overflow:hidden;white-space:nowrap;}
@@ -178,7 +196,7 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
 .footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:1.5rem;}
 .footer-brand{max-width:260px;}
 .footer-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
-.footer-logo-mark{width:48px;height:48px;background:rgba(255,255,255,0.08);border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.footer-logo-mark{width:48px;height:48px;background:rgba(255,255,255,0.08);border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);display:flex;flex-direction:column;align-items:center;justify-con[...]
 .footer-logo-mark .fn{font-family:var(--font-display);font-size:18px;font-weight:900;color:var(--white);line-height:1;}
 .footer-logo-mark .fbh{font-family:var(--font-display);font-size:7px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:1px;line-height:1;}
 .footer-name{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--white);letter-spacing:1px;}
@@ -203,6 +221,9 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
   .hero-visual{display:none;}
   .about-grid{grid-template-columns:1fr;}
   .hero{min-height:auto;padding:5rem 1.5rem 3rem;}
+  .banner-card{min-height:150px;}
+  .banner-carousel{padding:1rem 1rem;}
+  .banner-title{font-size:clamp(18px,4vw,24px);}
 }
 .mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
 .mobile-menu.open{display:flex;}
@@ -274,6 +295,12 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
   </div>
 </div>
 
+<!-- Banner Section -->
+<section class="banner-section">
+  <div class="banner-carousel" id="banner-carousel"></div>
+  <div class="banner-dots" id="banner-dots"></div>
+</section>
+
 <!-- Marquee -->
 <div class="marquee-section">
   <div class="marquee-inner" id="marquee-inner"></div>
@@ -328,7 +355,7 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
       <div class="about-visual">
         <div class="av-title">Why Shop With Us</div>
         <div class="av-items">
-          <div class="av-item"><div class="av-item-icon">✅</div><div><div class="av-item-title">100% Genuine Brands</div><div class="av-item-sub">Only authentic branded products — no replicas, ever.</div></div></div>
+          <div class="av-item"><div class="av-item-icon">✅</div><div><div class="av-item-title">100% Genuine Brands</div><div class="av-item-sub">Only authentic branded products — no replicas.</div></div></div>
           <div class="av-item"><div class="av-item-icon">🔄</div><div><div class="av-item-title">Stock Updated Daily</div><div class="av-item-sub">New arrivals every day across all categories.</div></div></div>
           <div class="av-item"><div class="av-item-icon">💰</div><div><div class="av-item-title">Unbeatable Prices</div><div class="av-item-sub">Up to 90% off on selected premium brands.</div></div></div>
           <div class="av-item"><div class="av-item-icon">📍</div><div><div class="av-item-title">Walk In Anytime</div><div class="av-item-sub">Open 7 days a week, 10 AM to 9 PM.</div></div></div>
@@ -337,7 +364,7 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
       <div class="about-text">
         <div class="sec-label">Our Story</div>
         <div class="sec-title">Mandoli's Favourite Brand Store</div>
-        <p>23 Brand Hub is your neighbourhood destination for premium branded footwear and clothing. We started with a simple idea — bring genuine branded fashion to Mandoli at prices that everyone can afford.</p>
+        <p>23 Brand Hub is your neighbourhood destination for premium branded footwear and clothing. We started with a simple idea — bring genuine branded fashion to Mandoli at prices that everyone can enjoy.</p>
         <p>Whether you're looking for the latest sneakers, branded streetwear, or everyday classics — we have it all, constantly refreshed with new stock.</p>
         <div class="about-badges">
           <span class="about-badge">👟 Footwear</span>
@@ -369,7 +396,7 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
     <div class="contact-ctas">
       <a href="https://wa.me/917838124123?text=Hi%2023%20Brand%20Hub!%20I%27d%20like%20to%20enquire%20about%20your%20stock." target="_blank" class="btn-wa-big">💬 Chat on WhatsApp</a>
       <a href="https://www.instagram.com/hub23brandsmandoli/" target="_blank" class="btn-insta-big">📸 Follow on Instagram</a>
-      <a href="https://maps.google.com/?q=Sewadham+Road+Mandoli+Village+near+Bank+of+Baroda+Delhi" target="_blank" class="btn-secondary" style="color:var(--navy);border-color:var(--navy);padding:14px 28px;font-family:var(--font-body);font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">📍 Open in Maps</a>
+      <a href="https://maps.google.com/?q=Sewadham+Road+Mandoli+Village+near+Bank+of+Baroda+Delhi" target="_blank" class="btn-secondary" style="color:var(--navy);border-color:var(--navy);padding:14px 28px;">📍 Get Directions</a>
     </div>
   </div>
 </section>
@@ -412,7 +439,12 @@ footer{background:var(--navy);padding:3rem 2rem 1.5rem;}
 // ── DATA (injected by admin panel) ──
 const SITE_DATA = window.SITE_DATA || {
   announcement:{text:'',status:'inactive'},
-  hero:{label:'Fresh stock daily',title:'STEP INTO',titleAccent:'STYLE.',desc:"Delhi's premium destination for branded footwear & clothing. Genuine brands, unbeatable prices.",btn1:'Shop Now',btn2:'Find Our Store',stat1:{num:'100+',lbl:'Brands'},stat2:{num:'500+',lbl:'Styles'},stat3:{num:'90%',lbl:'Max Off'}},
+  hero:{label:'Fresh stock daily',title:'STEP INTO',titleAccent:'STYLE.',desc:"Delhi's premium destination for branded footwear & clothing. Genuine brands, unbeatable prices.",btn1:'Shop Now',btn2:'Find Our Store'},
+  banners:[
+    {image:'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=400&fit=crop',title:'Summer Collection',desc:'Up to 70% off on shoes & clothing',link:'#products',cta:'Shop Now'},
+    {image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&h=400&fit=crop',title:'New Arrivals',desc:'Fresh stock daily. Premium brands.',link:'#products',cta:'Explore'},
+    {image:'https://images.unsplash.com/photo-1515562141207-6811bcb33efb?w=1200&h=400&fit=crop',title:'Branded Footwear',desc:'Nike, Adidas, Puma & more in stock',link:'#categories',cta:'Browse'}
+  ],
   marquee:['Premium Brands','Fresh Stock Daily','Walk In Anytime','Genuine Products','Mandoli Delhi','Best Prices'],
   categories:[
     {name:'Sneakers & Shoes',icon:'👟',primary:true},
@@ -464,7 +496,32 @@ function renderHero(){
   if(h.stat2){document.getElementById('stat2-num').textContent=h.stat2.num;document.getElementById('stat2-lbl').textContent=h.stat2.lbl;}
   if(h.stat3){document.getElementById('stat3-num').textContent=h.stat3.num;document.getElementById('stat3-lbl').textContent=h.stat3.lbl;}
   const cats=SITE_DATA.categories||[];
-  document.getElementById('hero-cats').innerHTML=cats.slice(0,5).map((c,i)=>`<div class="hc-cat${c.primary||i===0?' primary':''}" onclick="filterProducts('${c.name}')"><span class="hc-cat-icon">${c.icon}</span><span class="hc-cat-name">${c.name}</span>${c.primary||i===0?'<span class="hc-tag">HOT</span>':''}</div>`).join('');
+  document.getElementById('hero-cats').innerHTML=cats.slice(0,5).map((c,i)=>`<div class="hc-cat${c.primary||i===0?' primary':''}" onclick="filterProducts('${c.name}')"><span class="hc-cat-icon">${c.icon}</span><span class="hc-cat-name">${c.name}</span><span class="hc-cat-count">${SITE_DATA.stock.filter(s=>s.category===c.name&&s.status==='active').length}</span></div>`).join('');
+}
+
+function renderBanners(){
+  const banners=SITE_DATA.banners||[];
+  if(!banners.length)return;
+  const carousel=document.getElementById('banner-carousel');
+  carousel.innerHTML=banners.map((b,i)=>`<a href="${b.link||'#'}" class="banner-card" style="background-image:url('${b.image}')"><div class="banner-content"><div class="banner-title">${b.title}</div><div class="banner-desc">${b.desc||''}</div><div class="banner-cta">${b.cta||'Learn More'}</div></div></a>`).join('');
+  
+  const dots=document.getElementById('banner-dots');
+  dots.innerHTML=banners.map((b,i)=>`<div class="dot${i===0?' active':''}" onclick="scrollBannerToIndex(${i})"></div>`).join('');
+}
+
+let currentBannerIndex=0;
+function scrollBannerToIndex(idx){
+  const carousel=document.getElementById('banner-carousel');
+  const cards=carousel.querySelectorAll('.banner-card');
+  if(cards[idx]){
+    cards[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+    currentBannerIndex=idx;
+    updateBannerDots();
+  }
+}
+
+function updateBannerDots(){
+  document.querySelectorAll('.banner-dots .dot').forEach((d,i)=>d.classList.toggle('active',i===currentBannerIndex));
 }
 
 function renderMarquee(){
@@ -508,8 +565,7 @@ function renderProducts(){
   document.getElementById('products-grid').innerHTML=filtered.map(item=>{
     const waTxt=encodeURIComponent(`Hi 23 Brand Hub! I'm interested in: ${item.name}. Please share details.`);
     return`<div class="product-card fade-in">
-      <div class="product-img">${item.photo?`<img class="product-img-photo" src="${item.photo}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="product-img-icon" style="display:none">${getIcon(item.category)}</div>`:`<div class="product-img-icon">${getIcon(item.category)}</div>`}
-      <span class="product-badge ${getBadgeCls(item.tag)}">${item.tag}</span></div>
+      <div class="product-img">${item.photo?`<img class="product-img-photo" src="${item.photo}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>`:''}<div class="product-img-icon" style="${item.photo?'display:none':''}">📦</div><span class="product-badge ${getBadgeCls(item.tag)}">${item.tag}</span></div>
       <div class="product-info">
         <div class="product-cat">${item.category}</div>
         <div class="product-name">${item.name}</div>
@@ -527,7 +583,7 @@ function renderOffers(){
   const offers=(SITE_DATA.offers||[]).filter(o=>o.status==='active');
   if(!offers.length){document.getElementById('offers').style.display='none';return;}
   document.getElementById('offers').style.display='block';
-  document.getElementById('offers-grid').innerHTML=offers.map(o=>`<div class="offer-card fade-in"><div class="offer-pct">${o.discount}</div><div class="offer-name">${o.name}</div><div class="offer-desc">${o.desc}</div>${o.expiry?`<div class="offer-expiry">Valid till ${o.expiry}</div>`:''}</div>`).join('');
+  document.getElementById('offers-grid').innerHTML=offers.map(o=>`<div class="offer-card fade-in"><div class="offer-pct">${o.discount}</div><div class="offer-name">${o.name}</div><div class="offer-desc">${o.desc}</div>${o.expiry?`<div class="offer-expiry">${o.expiry}</div>`:''}</div>`).join('');
   observeFade();
 }
 
@@ -537,6 +593,21 @@ function observeFade(){
   document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>obs.observe(el));
 }
 
+// ── BANNER CAROUSEL TRACKING ──
+const carousel=document.getElementById('banner-carousel');
+if(carousel){
+  carousel.addEventListener('scroll',()=>{
+    const cards=carousel.querySelectorAll('.banner-card');
+    let closest=0,minDist=Infinity;
+    cards.forEach((card,i)=>{
+      const dist=Math.abs(card.getBoundingClientRect().left-carousel.getBoundingClientRect().left);
+      if(dist<minDist){minDist=dist;closest=i;}
+    });
+    currentBannerIndex=closest;
+    updateBannerDots();
+  });
+}
+
 // ── MOBILE MENU ──
 function openMobileMenu(){document.getElementById('mobile-menu').classList.add('open');}
 function closeMobileMenu(){document.getElementById('mobile-menu').classList.remove('open');}
@@ -544,6 +615,7 @@ function closeMobileMenu(){document.getElementById('mobile-menu').classList.remo
 // ── INIT ──
 renderAnnouncement();
 renderHero();
+renderBanners();
 renderMarquee();
 renderCategories();
 renderFilters();
